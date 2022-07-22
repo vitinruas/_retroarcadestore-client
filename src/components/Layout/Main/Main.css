@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.main > section {
+  width: 1170px;
+}

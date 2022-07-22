@@ -1,0 +1,111 @@
+/* ========= mini nav ========== */
+.header .mini-nav {
+  width: 100%;
+  height: 5%;
+  background: black;
+  position: relative;
+  width: 100%;
+}
+
+.header .mini-nav ul .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header .mini-nav ul,
+.header .mini-nav ul .right {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .mini-nav li a {
+  color: white;
+}
+
+.header .mini-nav li {
+  font-size: 0.6rem;
+  font-weight: normal;
+  margin: 0 0.4rem;
+  border-bottom: 2px solid transparent;
+  padding: 0.2rem 0;
+}
+
+.header .mini-nav li:hover {
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+
+/* ========= user nav ========== */
+.header .user-nav {
+  height: 15%;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.header .user-nav ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .user-nav .right {
+  align-items: center;
+}
+
+.header .user-nav ul .right {
+  display: flex;
+}
+
+.header .user-nav ul .right li {
+  margin: 1rem;
+}
+
+.header .user-nav ul li {
+  font: normal 0.8rem 'Retron2000';
+  align-items: center;
+}
+
+.header .user-nav ul li:hover {
+  cursor: pointer;
+  color: var(--p-color);
+}
+
+.header .user-nav .logo {
+  position: absolute;
+  left: 51%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.header .user-nav .logo img {
+  width: 400px;
+}
+
+/* ========= app nav ========== */
+.header .app-nav {
+  height: 10%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.header .app-nav ul {
+  display: flex;
+  justify-items: center;
+}
+
+.header .app-nav ul li {
+  background: var(--s-color);
+  margin: 0 0.5rem;
+}
+
+/* ========= ad ========== */
+.ad {
+  height: 70%;
+  background: var(--s-color);
+}

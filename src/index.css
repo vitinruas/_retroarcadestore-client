@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Retron2000';
+  src: url('/public/assets/fonts/Retron2000.ttf');
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --p-color: #f24b59;
+  --s-color: #262554;
+  --t-color: #f29d35;
+}
+
+body {
+  color: var(--s-color);
+  font: normal 1rem 'Retron2000';
+  text-transform: uppercase;
+}
+
+.nav-button {
+  color: var(--s-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: normal;
+  cursor: pointer;
+  box-shadow: 2px 2.5px 0px 1px black;
+}
+
+form input {
+  font: normal 0.7rem 'Retron2000';
+  text-transform: uppercase;
+}
+
+.active {
+  background: var(--p-color) !important;
+}
+
+.btn {
+  border: none;
+  background: none;
+  font-family: 'Retron2000';
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.btn-primary {
+  color: white;
+  opacity: 0.9;
+  background: var(--p-color);
+  border-radius: 10px;
+  box-shadow: 2px 3px 0px black;
+}
+
+.btn.btn-primary:hover {
+  opacity: 1;
+}
+
+.btn.btn-secondary {
+  color: var(--t-color);
+  background: none;
+  border: 2px solid var(--t-color);
+}
+
+.btn.btn-secondary:hover {
+  background: var(--t-color);
+  color: white;
+}
+
+.icons {
+  font-size: 1.5rem;
+}

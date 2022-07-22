@@ -1,0 +1,20 @@
+.layout {
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'header' 'main' 'footer';
+}
+
+.header {
+  grid-template: header;
+  height: 80vh;
+}
+
+.main {
+  grid-template: main;
+  height: auto;
+}
+
+.footer {
+  grid-template: footer;
+  height: 30vh;
+}

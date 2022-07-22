@@ -1,0 +1,153 @@
+.product-modal {
+  width: 60%;
+  height: 60%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  position: relative;
+}
+
+.product-modal .close {
+  position: absolute;
+  top: -20px;
+  right: -35px;
+  color: red;
+}
+
+.product-modal .images {
+  height: 100%;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.product-modal .mainImage {
+  width: 80%;
+  height: 70%;
+}
+
+.product-modal .mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-modal .previewImages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  width: 80%;
+  height: 30%;
+}
+
+.product-modal .previewImages img,
+.product-modal .previewImages > .no-image {
+  width: 30%;
+  height: 50%;
+  margin: 1rem 1rem;
+}
+
+.product-modal .no-image {
+  width: 100%;
+  height: 100%;
+  background: var(--s-color);
+  border: 3px solid var(--p-color);
+}
+
+.product-modal .informations {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: left;
+  padding: 0 0.3rem 1rem 0.3rem;
+}
+
+.product-modal .name {
+  background: var(--s-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+.product-modal .category {
+  font-size: 0.5rem;
+  color: rgba(128, 128, 128, 0.712);
+  font-style: italic;
+}
+
+.product-modal .avaliation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+}
+
+.product-modal .avaliation > span {
+  color: rgba(0, 0, 0, 0.711);
+  font-size: 0.6rem;
+}
+
+.product-modal .description {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.product-modal .price {
+  font-size: 2rem;
+}
+
+.product-modal .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.product-modal .container .favorite {
+  color: var(--p-color);
+}
+
+.product-modal .quantity span {
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+.product-modal .icons {
+  cursor: pointer;
+}
+
+.product-modal .id {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 0.6rem;
+  color: rgba(0, 0, 0, 0.579);
+}
+
+.product-modal .buttons {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-modal .cart,
+.product-modal .buy {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-modal .cart span,
+.product-modal .buy span {
+  margin: 0 0.3rem;
+}
