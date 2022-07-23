@@ -9,6 +9,7 @@ const Footer = (props: Props) => {
   return (
     <footer className="footer">
       <section className="navigation">
+        {/* app nav */}
         <div className="app-nav">
           <ul>
             <li>
@@ -27,6 +28,7 @@ const Footer = (props: Props) => {
             </li>
           </ul>
         </div>
+        {/* user nav */}
         <div className="user-nav">
           <ul>
             <li>
@@ -43,6 +45,7 @@ const Footer = (props: Props) => {
             </li>
           </ul>
         </div>
+        {/* others nav */}
         <div className="others-nav">
           <ul>
             <li>
@@ -62,6 +65,7 @@ const Footer = (props: Props) => {
           </ul>
         </div>
       </section>
+      {/* portfolio */}
       <section className="portfolio">
         <strong>
           <a

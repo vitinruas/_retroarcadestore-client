@@ -1,5 +1,4 @@
 import React from 'react'
-import { IProduct } from '../../../protocols/product-entitie'
 
 // styles
 import './ProductModal.css'
@@ -16,9 +15,11 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { usePriceConverterContext } from '../../../contexts/price-converter-context'
 import { useModalContext } from '../../../contexts/modal-context'
 
+// interfaces
 interface IProps {
   product: IProduct
 }
+import { IProduct } from '../../../protocols/product-entitie'
 
 const ProductModal = ({ product }: IProps) => {
   const { dispatch } = useModalContext()
@@ -46,9 +47,15 @@ const ProductModal = ({ product }: IProps) => {
         </figure>
         {/* preview images */}
         <div className="previewImages">
-          <div className="no-image"></div>
-          <div className="no-image"></div>
-          <div className="no-image"></div>
+          {product.previewImages.length > 0 ? (
+            product.previewImages.map((image) => <img src={image} />)
+          ) : (
+            <>
+              <div className="no-image"></div>
+              <div className="no-image"></div>
+              <div className="no-image"></div>
+            </>
+          )}
         </div>
       </div>
 
@@ -57,7 +64,7 @@ const ProductModal = ({ product }: IProps) => {
         {/* name */}
         <h1 className="name">{product.name}</h1>
         {/* category */}
-        <span className="category">Categoria: {product.category}</span>
+        <span className="category">{product.category}</span>
         {/* avaliation */}
         <div className="avaliation">
           <div className="stars"></div>
@@ -95,15 +102,18 @@ const ProductModal = ({ product }: IProps) => {
         </div>
         {/* buttons */}
         <div className="buttons">
+          {/* cart */}
           <button className="cart btn btn-secondary">
             <FaShoppingCart className="icons" />
-            <span>Carrinho</span>
+            <span>Cart</span>
           </button>
+          {/* buy */}
           <button className="buy btn btn-primary">
             <AiFillDollarCircle className="icons" />
-            <span>Comprar</span>
+            <span>Buy Now</span>
           </button>
         </div>
+        {/* id */}
         <span className="id">ID: {product.id}</span>
       </div>
     </div>

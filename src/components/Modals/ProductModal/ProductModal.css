@@ -5,29 +5,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
   position: relative;
 }
 
-.product-modal .close {
-  position: absolute;
-  top: -20px;
-  right: -35px;
-  color: red;
-}
+/* ============= images ============= */
 
 .product-modal .images {
   height: 100%;
-  width: 55%;
+  padding: 1.5rem 0;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column;
 }
 
+.product-modal img {
+  border: 4px solid var(--s-color);
+}
+
+.product-modal img:hover {
+  cursor: pointer;
+  border-color: var(--p-color);
+}
+
 .product-modal .mainImage {
-  width: 80%;
-  height: 70%;
+  width: 90%;
+  height: 60%;
 }
 
 .product-modal .mainImage img {
@@ -37,52 +41,66 @@
   object-position: center;
 }
 
+.product-modal .mainImage img:hover {
+  cursor: zoom-in;
+}
+
 .product-modal .previewImages {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-flow: row;
   width: 80%;
-  height: 30%;
+  height: 40%;
 }
 
 .product-modal .previewImages img,
 .product-modal .previewImages > .no-image {
   width: 30%;
   height: 50%;
-  margin: 1rem 1rem;
 }
 
 .product-modal .no-image {
   width: 100%;
   height: 100%;
   background: var(--s-color);
-  border: 3px solid var(--p-color);
+  cursor: no-drop;
 }
+
+/* ============= informations ============= */
 
 .product-modal .informations {
   height: 100%;
-  width: 45%;
+  width: 40%;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   align-items: left;
-  padding: 0 0.3rem 1rem 0.3rem;
+  padding: 0.5rem;
 }
+
+/* ============= name ============= */
 
 .product-modal .name {
   background: var(--s-color);
   color: white;
-  padding: 0.5rem 1rem;
+  width: 100%;
+  padding: 0.5rem 0;
   text-align: center;
   font-weight: normal;
 }
 
+/* ============= category ============= */
+
 .product-modal .category {
+  width: 100%;
   font-size: 0.5rem;
   color: rgba(128, 128, 128, 0.712);
-  font-style: italic;
+  position: relative;
+  bottom: 10px;
 }
+
+/* ============= avaliation ============= */
 
 .product-modal .avaliation {
   width: 100%;
@@ -97,23 +115,39 @@
   font-size: 0.6rem;
 }
 
+/* ============= description ============= */
+
 .product-modal .description {
+  width: 100%;
   color: black;
   font-size: 0.8rem;
 }
+
+/* ============= price ============= */
 
 .product-modal .price {
   font-size: 2rem;
 }
 
+/* ============= container ============= */
+
 .product-modal .container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
+/* ============= favorite ============= */
+
 .product-modal .container .favorite {
   color: var(--p-color);
+}
+
+/* ============= quantity ============= */
+
+.product-modal .quantity {
+  width: 100%;
 }
 
 .product-modal .quantity span {
@@ -121,23 +155,12 @@
   margin: 0 1rem;
 }
 
-.product-modal .icons {
+.product-modal .quantity .icons:hover {
   cursor: pointer;
+  color: var(--p-color);
 }
 
-.product-modal .id {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  font-size: 0.6rem;
-  color: rgba(0, 0, 0, 0.579);
-}
-
-.product-modal .buttons {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-}
+/* ============= buttons ============= */
 
 .product-modal .cart,
 .product-modal .buy {
@@ -149,5 +172,16 @@
 
 .product-modal .cart span,
 .product-modal .buy span {
-  margin: 0 0.3rem;
+  width: 60px;
+  margin: 0 0.2rem;
+}
+
+/* ============= id ============= */
+
+.product-modal .id {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  font-size: 0.6rem;
+  color: rgba(0, 0, 0, 0.579);
 }

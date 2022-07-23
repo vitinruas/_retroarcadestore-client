@@ -7,7 +7,7 @@ const products_list: IProduct[] = [
     category: 'games',
     mainImage:
       'https://cdn.cloudflare.steamstatic.com/steam/apps/896520/capsule_616x353.jpg?t=1651856043',
-    previewImages: [''],
+    previewImages: [],
     description:
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, excepturi doloribus, cupiditate sapiente nostrum odio commodi est dignissimos minima tempore vitae unde error cumque enim magnam suscipit a illum saepe.',
     avaliations: [
@@ -44,7 +44,7 @@ const products_list: IProduct[] = [
     name: 'Stay Out of the House Shirt',
     category: 'clothes',
     mainImage: '',
-    previewImages: [''],
+    previewImages: [],
     description:
       'LOREM IPSUM DOLOR, SIT AMET CONSECTETUR ADIPISICING ELIT. SEQUI, EXCEPTURI DOLORIBUS, CUPIDITATE SAPIENTE NOSTRUM ODIO COMMODI EST DIGNISSIMOS MINIMA TEMPORE VITAE UNDE ERROR CUMQUE ENIM MAGNAM SUSCIPIT A ILLUM SAEPE.',
     avaliations: [

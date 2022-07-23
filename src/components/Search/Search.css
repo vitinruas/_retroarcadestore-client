@@ -8,24 +8,12 @@
   position: relative;
 }
 
-.search input {
-  width: 100%;
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
-  border: 1px solid var(--s-color);
-  outline: 1px solid var(--s-color);
-}
-
-.search input:focus {
-  border-color: var(--p-color);
-  outline: 1px solid var(--p-color);
-}
-
 .search button {
   width: 18px;
   height: 18px;
   position: absolute;
-  left: 10px;
-  top: -12px;
+  left: 5px;
+  top: -36px;
   border: none;
   background: none;
 }
@@ -33,6 +21,7 @@
 .search .icons {
   font-size: 1rem;
   cursor: pointer;
+  position: absolute;
 }
 
 .search .icons:hover {

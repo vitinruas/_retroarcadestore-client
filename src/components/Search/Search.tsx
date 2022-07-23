@@ -13,11 +13,7 @@ const Search = (props: IProps) => {
         <button className="search">
           <AiOutlineSearch className="icons" />
         </button>
-        <input
-          type="search"
-          placeholder="Pesquise pelos mais variados produtos..."
-          autoFocus
-        />
+        <input type="search" placeholder="Search here..." autoFocus />
       </label>
     </form>
   )

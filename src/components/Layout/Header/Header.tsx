@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 // styles
 import './Header.css'
@@ -7,9 +7,20 @@ import { AiFillHeart } from 'react-icons/ai'
 import { FaShoppingCart } from 'react-icons/fa'
 import { AiOutlineSearch } from 'react-icons/ai'
 
+// contexts
+import { useModalContext } from '../../../contexts/modal-context'
+import SignUpModal from '../../Modals/SignupModal/SignUpModal'
+
 type Props = {}
 
 const Header = (props: Props) => {
+  const { dispatch } = useModalContext()
+  const handleOpenModal = (reactComponent: ReactElement) => {
+    return dispatch({
+      type: 'OPEN',
+      reactComponent,
+    })
+  }
   return (
     <header className="header">
       {/* mini nav */}
@@ -59,7 +70,12 @@ const Header = (props: Props) => {
           </div>
           <div className="right">
             <li className="login">Entrar</li>
-            <li className="signup">Cadastrar</li>
+            <li
+              className="signup"
+              onClick={() => handleOpenModal(<SignUpModal />)}
+            >
+              Cadastrar
+            </li>
             <li className="favorites">
               <AiFillHeart className="icons" />
             </li>

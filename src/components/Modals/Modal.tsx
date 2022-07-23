@@ -7,8 +7,7 @@ import './Modal.css'
 interface IProps {}
 
 const Modal = ({}: IProps) => {
-  const { config, dispatch } = useModalContext()
-  console.log(config)
+  const { config } = useModalContext()
   return <section className="modal">{config.reactComponent}</section>
 }
 
