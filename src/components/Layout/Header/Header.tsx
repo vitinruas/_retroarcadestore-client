@@ -10,6 +10,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
 import SignUpModal from '../../Modals/SignupModal/SignUpModal'
+import LoginModal from '../../Modals/LoginModal/LoginModal'
 
 type Props = {}
 
@@ -69,7 +70,12 @@ const Header = (props: Props) => {
             </li>
           </div>
           <div className="right">
-            <li className="login">Entrar</li>
+            <li
+              className="login"
+              onClick={() => handleOpenModal(<LoginModal />)}
+            >
+              Entrar
+            </li>
             <li
               className="signup"
               onClick={() => handleOpenModal(<SignUpModal />)}

@@ -1,47 +1,40 @@
 import React, { ReactElement } from 'react'
 
 // styles
-import './SignUpModal.css'
-import PixelArt from './assets/images/pixelart.gif'
+import './LoginModal.css'
 import { IoCloseCircleSharp } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
 import { RiLockPasswordFill, RiUser3Fill } from 'react-icons/ri'
 
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
-import LoginModal from '../LoginModal/LoginModal'
+import SignUpModal from '../SignupModal/SignUpModal'
 
 // interfaces
 interface IProps {}
 
-const SignUpModal = ({}: IProps) => {
+const LoginModal = ({}: IProps) => {
   const { dispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
-    dispatch({
+    return dispatch({
       type: 'OPEN',
       reactComponent,
     })
   }
-  const handleCloseSignUpModal = () => {
+  const handleCloseLoginModal = () => {
     dispatch({
       type: 'CLOSE',
       reactComponent: null,
     })
   }
   return (
-    <section className="signup-modal">
-      <button className="btn close" onClick={handleCloseSignUpModal}>
+    <section className="login-modal">
+      <button className="btn close" onClick={handleCloseLoginModal}>
         <IoCloseCircleSharp className="icons" />
       </button>
-      <h1 className="title">SignUp</h1>
+      <h1 className="title">Login</h1>
       <form className="form">
-        <span>Thanks for joining us!)</span>
-        {/* Name */}
-        <label className="name">
-          <span>Name:</span>
-          <RiUser3Fill className="icons" />
-          <input type="text" placeholder="Name" />
-        </label>
+        <span>Welcome to back! =)</span>
         {/* E-mail */}
         <label className="email">
           <span>E-mail:</span>
@@ -54,28 +47,19 @@ const SignUpModal = ({}: IProps) => {
           <RiLockPasswordFill className="icons" />
           <input type="password" placeholder="Password" />
         </label>
-        {/* Password Confirmation */}
-        <label className="passwordConfirmation">
-          <span>Password Confirmation:</span>
-          <RiLockPasswordFill className="icons" />
-          <input type="password" placeholder="Password Confirmation" />
-        </label>
         {/* buttons */}
         <div className="buttons">
           <button
             className="btn btn-secondary"
-            onClick={() => handleOpenModal(<LoginModal />)}
+            onClick={() => handleOpenModal(<SignUpModal />)}
           >
-            I'm already a user
+            I'm new here
           </button>
-          <button className="btn btn-primary">SignUp</button>
+          <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      <div className="background">
-        <img src={PixelArt} />
-      </div>
     </section>
   )
 }
 
-export default SignUpModal
+export default LoginModal
