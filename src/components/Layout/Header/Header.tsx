@@ -5,16 +5,20 @@ import './Header.css'
 import LogoImage from './assets/images/logo.png'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaShoppingCart } from 'react-icons/fa'
-import { AiOutlineSearch } from 'react-icons/ai'
+import { FaSearch } from 'react-icons/fa'
 
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
+
+// components
 import SignUpModal from '../../Modals/SignupModal/SignUpModal'
 import LoginModal from '../../Modals/LoginModal/LoginModal'
 
-type Props = {}
+// interfaces
 
-const Header = (props: Props) => {
+interface IProps {}
+
+const Header = ({}: IProps) => {
   const { dispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
     return dispatch({
@@ -61,7 +65,7 @@ const Header = (props: Props) => {
         <ul>
           <div className="left">
             <li className="search">
-              <AiOutlineSearch className="icons" />
+              <FaSearch className="icons" />
             </li>
           </div>
           <div className="center">

@@ -2,7 +2,7 @@ import React from 'react'
 
 // styles
 import './Search.css'
-import { AiOutlineSearch } from 'react-icons/ai'
+import { FaSearch } from 'react-icons/fa'
 
 interface IProps {}
 
@@ -11,7 +11,7 @@ const Search = (props: IProps) => {
     <form className="search">
       <label>
         <button className="search">
-          <AiOutlineSearch className="icons" />
+          <FaSearch className="icons" />
         </button>
         <input type="search" placeholder="Search here..." autoFocus />
       </label>

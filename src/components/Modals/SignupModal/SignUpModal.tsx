@@ -35,7 +35,7 @@ const SignUpModal = ({}: IProps) => {
       </button>
       <h1 className="title">SignUp</h1>
       <form className="form">
-        <span>Thanks for joining us!)</span>
+        <span>Thanks for joining us!</span>
         {/* Name */}
         <label className="name">
           <span>Name:</span>
