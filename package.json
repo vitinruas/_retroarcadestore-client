@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "git-commit-msg-linter": "^4.1.3"
   }
 }

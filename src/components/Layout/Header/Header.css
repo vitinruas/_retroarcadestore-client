@@ -99,11 +99,6 @@
   justify-items: center;
 }
 
-.header .app-nav ul li {
-  background: var(--s-color);
-  margin: 0 0.5rem;
-}
-
 /* ========= ad ========== */
 .ad {
   height: 70%;

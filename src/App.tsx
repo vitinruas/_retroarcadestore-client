@@ -1,5 +1,6 @@
 import './App.css'
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 // components
 import Layout from './components/Layout'
@@ -13,11 +14,13 @@ import { useModalContext } from './contexts/modal-context'
 
 function App() {
   const { config } = useModalContext()
-
+  console.log(localStorage.getItem('accessToken'))
   return (
     <>
       {config.isOpen && <Modal />}
-      <Layout>{<Pages />}</Layout>
+      <BrowserRouter>
+        <Layout>{<Pages />}</Layout>
+      </BrowserRouter>
     </>
   )
 }

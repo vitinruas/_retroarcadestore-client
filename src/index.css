@@ -34,6 +34,8 @@ body {
   font-weight: normal;
   cursor: pointer;
   box-shadow: 2px 2.5px 0px 1px black;
+  background: var(--s-color);
+  margin: 0 0.5rem;
 }
 
 .active {
@@ -108,6 +110,16 @@ form input:focus {
   background: var(--p-color);
   border-radius: 10px;
   box-shadow: 2px 3px 0px black;
+  transition: 0.2s;
+}
+
+.btn.btn-primary.disabled {
+  color: white;
+  opacity: 0.9;
+  background: rgb(170, 170, 170);
+  border-radius: 10px;
+  box-shadow: 2px 3px 0px black;
+  transition: 0.2s;
 }
 
 .btn.btn-primary:hover {
@@ -137,4 +149,54 @@ form input:focus {
   font-size: 2rem;
   border-radius: 50%;
   background: white;
+}
+
+.zoom-in-image {
+  animation-name: zoom-in-image;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom-in-image {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+
+.zoom-out-image {
+  animation-name: zoom-out-image;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom-out-image {
+  from {
+    transform: scale(1.3);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.authentication-error-effect {
+  animation-name: authentication-error-effect;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes authentication-error-effect {
+  from {
+    background: var(--s-color);
+  }
+  to {
+    background: var(--p-color);
+  }
 }

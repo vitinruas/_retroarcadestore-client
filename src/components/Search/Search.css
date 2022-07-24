@@ -33,6 +33,7 @@
   font: normal 0.8rem 'Retron2000';
   text-transform: uppercase;
 }
+
 /* clears the 'X' from Internet Explorer */
 input[type='search']::-ms-clear {
   display: none;

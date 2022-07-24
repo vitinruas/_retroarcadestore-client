@@ -13,6 +13,7 @@ import { useModalContext } from '../../../contexts/modal-context'
 // components
 import SignUpModal from '../../Modals/SignupModal/SignUpModal'
 import LoginModal from '../../Modals/LoginModal/LoginModal'
+import { NavLink } from 'react-router-dom'
 
 // interfaces
 
@@ -98,10 +99,18 @@ const Header = ({}: IProps) => {
       {/* app nav */}
       <nav className="app-nav">
         <ul>
-          <li className="nav-button active">Página Principal</li>
-          <li className="nav-button">Jogos</li>
-          <li className="nav-button">Roupas</li>
-          <li className="nav-button">Acessórios</li>
+          <NavLink to={'/'} className="nav-button">
+            Página Principal
+          </NavLink>
+          <NavLink to={'/games'} className="nav-button">
+            Jogos
+          </NavLink>
+          <NavLink to={'/clothes'} className="nav-button">
+            Roupas
+          </NavLink>
+          <NavLink to={'/accessories'} className="nav-button">
+            Acessórios
+          </NavLink>
         </ul>
       </nav>
       {/* ad */}

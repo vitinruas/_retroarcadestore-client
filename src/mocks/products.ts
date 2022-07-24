@@ -1,4 +1,4 @@
-import { IProduct } from '../protocols/product-entitie'
+import { IProduct } from '../protocols/product/product-entitie'
 
 const products_list: IProduct[] = [
   {

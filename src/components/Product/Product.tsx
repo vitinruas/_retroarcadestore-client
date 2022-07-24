@@ -1,6 +1,6 @@
 import React from 'react'
 import { usePriceConverterContext } from '../../contexts/price-converter-context'
-import { IProduct } from '../../protocols/product-entitie'
+import { IProduct } from '../../protocols/product/product-entitie'
 
 // styles
 import './Product.css'

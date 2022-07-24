@@ -4,7 +4,7 @@ import Product from '../../components/Product/Product'
 import Search from '../../components/Search/Search'
 import { useModalContext } from '../../contexts/modal-context'
 import products_list from '../../mocks/products'
-import { IProduct } from '../../protocols/product-entitie'
+import { IProduct } from '../../protocols/product/product-entitie'
 
 // styles
 import './Home.css'
@@ -13,6 +13,7 @@ type IProps = {}
 
 const Home = (props: IProps) => {
   const products = products_list
+
   const { dispatch } = useModalContext()
   const handleOpenProductModal = (product: IProduct) => {
     return dispatch({
@@ -20,6 +21,7 @@ const Home = (props: IProps) => {
       reactComponent: <ProductModal product={product} />,
     })
   }
+
   return (
     <section className="home">
       <Search />

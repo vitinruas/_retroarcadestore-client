@@ -19,7 +19,7 @@ import { useModalContext } from '../../../contexts/modal-context'
 interface IProps {
   product: IProduct
 }
-import { IProduct } from '../../../protocols/product-entitie'
+import { IProduct } from '../../../protocols/product/product-entitie'
 
 const ProductModal = ({ product }: IProps) => {
   const { dispatch } = useModalContext()
@@ -28,6 +28,20 @@ const ProductModal = ({ product }: IProps) => {
       type: 'CLOSE',
       reactComponent: null,
     })
+  }
+
+  const handleZoomInImage = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    e.currentTarget.classList.remove('zoom-out-image')
+    e.currentTarget.classList.add('zoom-in-image')
+  }
+
+  const handleZoomOutImage = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    e.currentTarget.classList.remove('zoom-in-image')
+    e.currentTarget.classList.add('zoom-out-image')
   }
   const { convert } = usePriceConverterContext()
   return (
@@ -40,7 +54,11 @@ const ProductModal = ({ product }: IProps) => {
         {/* main image */}
         <figure className="mainImage">
           {product.mainImage ? (
-            <img src={product.mainImage} />
+            <img
+              src={product.mainImage}
+              onMouseEnter={(e) => handleZoomInImage(e)}
+              onMouseLeave={(e) => handleZoomOutImage(e)}
+            />
           ) : (
             <div className="no-image"></div>
           )}

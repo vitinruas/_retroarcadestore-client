@@ -1,0 +1,12 @@
+.error-404 {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.error-404 h1 {
+  font: bold 3rem 'Retron2000';
+}
