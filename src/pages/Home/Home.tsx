@@ -34,8 +34,11 @@ const Home = (props: IProps) => {
             products.map(
               (product) =>
                 product.isEnabled && (
-                  <div onClick={() => handleOpenProductModal(product)}>
-                    <Product key={product.id} product={product} />
+                  <div
+                    key={product.id}
+                    onClick={() => handleOpenProductModal(product)}
+                  >
+                    <Product product={product} />
                   </div>
                 )
             )

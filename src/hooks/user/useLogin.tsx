@@ -1,31 +1,27 @@
 import { useState } from 'react'
+import { makeRequest } from '../../components/helpers/request'
 import { IAuthenticationModel } from '../../protocols/user/authentication-protocol'
-import { useFetch } from '../useFetch'
 
 export const useLogin = () => {
-  const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
 
-  const authenticate = async ({ email, password }: IAuthenticationModel) => {
+  const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)
-    const { error, dataResponse } = await useFetch('/login', 'POST', {
-      email,
-      password,
-    })
+    const request: RequestInit = makeRequest('POST', authenticationData)
+    try {
+      const response = await fetch('http://localhost:5000/api/login', request)
+      const data = await response.json()
+      if (response.status >= 400) {
+        setError(data)
+      }
 
-    if (!error) {
-      localStorage.setItem(
-        'accessToken',
-        JSON.stringify(dataResponse['accessToken'])
-      )
+      localStorage.setItem('accessToken', JSON.stringify(data['accessToken']))
+    } catch (error) {
+      setError('Error! Try again later')
     }
-    setError(error)
     setLoading(false)
   }
 
-  return {
-    loading,
-    error,
-    authenticate,
-  }
+  return { error, loading, login }
 }

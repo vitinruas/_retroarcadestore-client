@@ -1,38 +1,27 @@
 import { useState } from 'react'
+import { makeRequest } from '../../components/helpers/request'
 import { ISignUpModel } from '../../protocols/user/signup-protocol'
-import { useFetch } from '../useFetch'
 
 export const useSignUp = () => {
-  const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
 
-  const signup = async ({
-    name,
-    email,
-    password,
-    passwordConfirmation,
-  }: ISignUpModel) => {
+  const signUp = async (signupData: ISignUpModel | null) => {
     setLoading(true)
-    const { error, dataResponse } = await useFetch('/signup', 'POST', {
-      name,
-      email,
-      password,
-      passwordConfirmation,
-    })
+    const request: RequestInit = makeRequest('POST', signupData)
+    try {
+      const response = await fetch('http://localhost:5000/api/signup', request)
+      const data = await response.json()
+      if (response.status >= 400) {
+        setError(data)
+      }
 
-    if (!error) {
-      localStorage.setItem(
-        'accessToken',
-        JSON.stringify(dataResponse['accessToken'])
-      )
+      localStorage.setItem('accessToken', JSON.stringify(data['accessToken']))
+    } catch (error) {
+      setError('Error! Try again later')
     }
-    setError(error)
     setLoading(false)
   }
 
-  return {
-    loading,
-    error,
-    signup,
-  }
+  return { error, loading, signUp }
 }

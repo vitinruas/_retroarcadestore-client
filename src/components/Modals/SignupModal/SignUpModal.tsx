@@ -25,7 +25,7 @@ const SignUpModal = ({}: IProps) => {
   const [password, setPassword] = useState<string>('')
   const [passwordConfirmation, setPasswordConfirmation] = useState<string>('')
 
-  const { error, loading, signup } = useSignUp()
+  const { error, loading, signUp } = useSignUp()
 
   const { dispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
@@ -50,7 +50,7 @@ const SignUpModal = ({}: IProps) => {
 
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    signup({ name, email, password, passwordConfirmation })
+    signUp({ name, email, password, passwordConfirmation })
   }
 
   return (

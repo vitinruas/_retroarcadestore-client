@@ -4,7 +4,7 @@ import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import './LoginModal.css'
 import { IoCloseCircleSharp } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
-import { RiLockPasswordFill, RiUser3Fill } from 'react-icons/ri'
+import { RiLockPasswordFill } from 'react-icons/ri'
 
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
@@ -18,7 +18,7 @@ const LoginModal = ({}: IProps) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
-  const { error, loading, authenticate } = useLogin()
+  const { error, loading, login } = useLogin()
 
   const { dispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
@@ -36,7 +36,7 @@ const LoginModal = ({}: IProps) => {
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    authenticate({ email, password })
+    login({ email, password })
   }
 
   const titleRef = useRef<any>()
