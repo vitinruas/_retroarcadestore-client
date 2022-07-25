@@ -16,7 +16,7 @@ interface IAuthContext {
 }
 
 interface IAction {
-  type: string
+  type: 'AUTHENTICATE' | 'LOGOUT'
 }
 
 const initialState: IAuthState = {

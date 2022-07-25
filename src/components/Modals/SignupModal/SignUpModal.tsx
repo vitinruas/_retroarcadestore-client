@@ -15,6 +15,7 @@ import LoginModal from '../LoginModal/LoginModal'
 
 // hooks
 import { useSignUp } from '../../../hooks/user/useSignUp'
+import { useAuthContext } from '../../../contexts/auth-context'
 
 // interfaces
 interface IProps {}
@@ -27,31 +28,46 @@ const SignUpModal = ({}: IProps) => {
 
   const { error, loading, signUp } = useSignUp()
 
-  const { dispatch } = useModalContext()
+  const { dispatch: modalDispatch } = useModalContext()
+
+  // handle open modal
   const handleOpenModal = (reactComponent: ReactElement) => {
-    dispatch({
+    modalDispatch({
       type: 'OPEN',
       reactComponent,
     })
   }
+
+  // handle close modal
   const handleCloseSignUpModal = () => {
-    dispatch({
+    modalDispatch({
       type: 'CLOSE',
       reactComponent: null,
     })
   }
 
+  // handle signup
+  const { dispatch: authDispatch } = useAuthContext()
+  const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    signUp({ name, email, password, passwordConfirmation }).then(() => {
+      authDispatch({
+        type: 'AUTHENTICATE',
+      })
+      modalDispatch({
+        type: 'CLOSE',
+        reactComponent: null,
+      })
+    })
+  }
+
+  // error style
   const titleRef = useRef<any>()
   useEffect(() => {
     if (error) {
       titleRef.current.classList.add('authentication-error-effect')
     }
   }, [error])
-
-  const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    signUp({ name, email, password, passwordConfirmation })
-  }
 
   return (
     <section className="signup-modal">

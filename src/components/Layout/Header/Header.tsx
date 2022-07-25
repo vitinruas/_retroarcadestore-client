@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 
 // styles
 import './Header.css'
@@ -9,24 +10,31 @@ import { FaSearch } from 'react-icons/fa'
 
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
+import { useAuthContext } from '../../../contexts/auth-context'
 
 // components
 import SignUpModal from '../../Modals/SignupModal/SignUpModal'
 import LoginModal from '../../Modals/LoginModal/LoginModal'
-import { NavLink } from 'react-router-dom'
 
 // interfaces
-
 interface IProps {}
 
 const Header = ({}: IProps) => {
-  const { dispatch } = useModalContext()
+  const { state, dispatch: authDispatch } = useAuthContext()
+  const { dispatch: modalDispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
-    return dispatch({
+    return modalDispatch({
       type: 'OPEN',
       reactComponent,
     })
   }
+
+  const handleLogout = () => {
+    authDispatch({
+      type: 'LOGOUT',
+    })
+  }
+
   return (
     <header className="header">
       {/* mini nav */}
@@ -75,18 +83,30 @@ const Header = ({}: IProps) => {
             </li>
           </div>
           <div className="right">
-            <li
-              className="login"
-              onClick={() => handleOpenModal(<LoginModal />)}
-            >
-              Entrar
-            </li>
-            <li
-              className="signup"
-              onClick={() => handleOpenModal(<SignUpModal />)}
-            >
-              Cadastrar
-            </li>
+            {state.isLogged ? (
+              <div className="user">
+                <li className="account">Account</li>
+                <li className="account" onClick={handleLogout}>
+                  Logout
+                </li>
+              </div>
+            ) : (
+              <div className="authentication">
+                <li
+                  className="login"
+                  onClick={() => handleOpenModal(<LoginModal />)}
+                >
+                  Entrar
+                </li>
+                <li
+                  className="signup"
+                  onClick={() => handleOpenModal(<SignUpModal />)}
+                >
+                  Cadastrar
+                </li>
+              </div>
+            )}
+
             <li className="favorites">
               <AiFillHeart className="icons" />
             </li>

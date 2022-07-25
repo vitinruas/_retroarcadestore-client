@@ -6,9 +6,14 @@ import { IoCloseCircleSharp } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
 import { RiLockPasswordFill } from 'react-icons/ri'
 
+// components
+import SignUpModal from '../SignupModal/SignUpModal'
+
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
-import SignUpModal from '../SignupModal/SignUpModal'
+import { useAuthContext } from '../../../contexts/auth-context'
+
+// hooks
 import { useLogin } from '../../../hooks/user/useLogin'
 
 // interfaces
@@ -20,23 +25,32 @@ const LoginModal = ({}: IProps) => {
 
   const { error, loading, login } = useLogin()
 
-  const { dispatch } = useModalContext()
+  const { dispatch: modalDispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
-    return dispatch({
+    return modalDispatch({
       type: 'OPEN',
       reactComponent,
     })
   }
   const handleCloseLoginModal = () => {
-    dispatch({
+    modalDispatch({
       type: 'CLOSE',
       reactComponent: null,
     })
   }
 
+  const { dispatch: authDispatch } = useAuthContext()
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    login({ email, password })
+    login({ email, password }).then(() => {
+      authDispatch({
+        type: 'AUTHENTICATE',
+      })
+      modalDispatch({
+        type: 'CLOSE',
+        reactComponent: null,
+      })
+    })
   }
 
   const titleRef = useRef<any>()
