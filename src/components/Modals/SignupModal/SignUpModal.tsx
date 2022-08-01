@@ -74,7 +74,7 @@ const SignUpModal = ({}: IProps) => {
         {error || 'SignUp'}
       </h1>
       <form className="form" onSubmit={handleSignUp}>
-        <span>Thanks for joining us!</span>
+        <span className="msg">Thanks for joining us!</span>
         {/* Name */}
         <label className="name">
           <span>Name:</span>

@@ -20,7 +20,7 @@ export const useSignUp = () => {
       signUpData
     )
     // check if in response there is access token
-    if (receivedData['accessToken']) {
+    if (receivedData && receivedData['accessToken']) {
       localStorage.setItem(
         'accessToken',
         JSON.stringify(receivedData['accessToken'])

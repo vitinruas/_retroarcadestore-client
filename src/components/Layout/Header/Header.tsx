@@ -1,5 +1,6 @@
 import React, { ReactElement, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useLogout } from '../../../hooks/user/authentication/useLogout'
 
 // styles
 import './Header.css'
@@ -20,8 +21,10 @@ import LoginModal from '../../Modals/LoginModal/LoginModal'
 interface IProps {}
 
 const Header = ({}: IProps) => {
-  const { authState, authDispatch } = useAuthContext()
+  const { authState } = useAuthContext()
   const { dispatch: modalDispatch } = useModalContext()
+  const { logout } = useLogout()
+
   const handleOpenModal = (reactComponent: ReactElement) => {
     return modalDispatch({
       type: 'OPEN',
@@ -29,10 +32,8 @@ const Header = ({}: IProps) => {
     })
   }
 
-  const handleLogout = () => {
-    authDispatch({
-      type: 'LOGOUT',
-    })
+  const handleLogout = async () => {
+    await logout()
   }
 
   return (
@@ -85,7 +86,11 @@ const Header = ({}: IProps) => {
           <div className="right">
             {authState.isLogged ? (
               <div className="user">
-                <li className="account">Account</li>
+                <li>
+                  <NavLink to={'/account'} className="account">
+                    Account
+                  </NavLink>
+                </li>
                 <li className="account" onClick={handleLogout}>
                   Logout
                 </li>
@@ -119,18 +124,26 @@ const Header = ({}: IProps) => {
       {/* app nav */}
       <nav className="app-nav">
         <ul>
-          <NavLink to={'/'} className="nav-button">
-            Página Principal
-          </NavLink>
-          <NavLink to={'/games'} className="nav-button">
-            Jogos
-          </NavLink>
-          <NavLink to={'/clothes'} className="nav-button">
-            Roupas
-          </NavLink>
-          <NavLink to={'/accessories'} className="nav-button">
-            Acessórios
-          </NavLink>
+          <li>
+            <NavLink to={'/'} className="nav-button">
+              Página Principal
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={'/games'} className="nav-button">
+              Jogos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={'/clothes'} className="nav-button">
+              Roupas
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={'/accessories'} className="nav-button">
+              Acessórios
+            </NavLink>
+          </li>
         </ul>
       </nav>
       {/* ad */}

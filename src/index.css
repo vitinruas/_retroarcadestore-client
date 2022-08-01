@@ -21,29 +21,16 @@
 
 body {
   color: var(--s-color);
-  font: normal 0.8rem 'Retron2000';
+  font: normal 1rem 'Retron2000';
   text-transform: uppercase;
-}
-
-.nav-button {
-  color: var(--s-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 15px;
-  font-size: 0.7rem;
-  font-weight: normal;
-  cursor: pointer;
-  box-shadow: 2px 2.5px 0px 1px black;
-  background: var(--s-color);
-  margin: 0 0.5rem;
-}
-
-.active {
-  background: var(--p-color) !important;
 }
 
 .icons {
   font-size: 1.5rem;
+}
+
+a {
+  color: var(--s-color);
 }
 
 form label span {
@@ -64,6 +51,7 @@ form input {
   border: 1px solid var(--s-color);
   outline: 1px solid var(--s-color);
   font: bold 0.9rem 'Roboto';
+  font-size: min(1rem, 1vw);
   color: #1a1a3a;
 }
 
@@ -96,7 +84,7 @@ form input:focus {
   background: none;
   font-family: 'Retron2000';
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
+  font-size: min(1rem, 0.8vw);
 }
 
 .btn:hover {
@@ -110,6 +98,7 @@ form input:focus {
   border-radius: 10px;
   box-shadow: 2px 3px 0px black;
   transition: 0.2s;
+  padding: 0.5rem 2.5rem;
 }
 
 .btn.btn-primary.disabled {
@@ -129,6 +118,7 @@ form input:focus {
   color: var(--t-color);
   background: none;
   border: 2px solid var(--t-color);
+  padding: 0.5rem 0.5rem;
 }
 
 .btn.btn-secondary:hover {
