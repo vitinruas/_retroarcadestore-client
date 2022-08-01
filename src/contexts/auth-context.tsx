@@ -53,7 +53,6 @@ export const AuthProvider = ({ children }: IProps) => {
         }
 
       case 'LOGOUT':
-        localStorage.removeItem('accessToken')
         return {
           ...prevState,
           isLogged: false,

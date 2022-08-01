@@ -14,7 +14,7 @@ import { useModalContext } from '../../../contexts/modal-context'
 import { useAuthContext } from '../../../contexts/auth-context'
 
 // hooks
-import { useLogin } from '../../../hooks/user/useLogin'
+import { useLogin } from '../../../hooks/user/authentication/useLogin'
 
 // interfaces
 interface IProps {}
@@ -39,18 +39,12 @@ const LoginModal = ({}: IProps) => {
     })
   }
 
-  const { authState, authDispatch } = useAuthContext()
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const { authState } = useAuthContext()
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    login({ email, password }).then(() => {
-      authDispatch({
-        type: 'AUTHENTICATE',
-      })
+    await login({ email, password }).then(() => {
       if (authState.isLogged) {
-        modalDispatch({
-          type: 'CLOSE',
-          reactComponent: null,
-        })
+        handleCloseLoginModal()
       }
     })
   }
