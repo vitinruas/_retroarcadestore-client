@@ -15,12 +15,12 @@ import { useAuthContext } from './contexts/auth-context'
 
 function App() {
   const { config } = useModalContext()
-  const { state, dispatch } = useAuthContext()
+  const { authDispatch } = useAuthContext()
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true)
 
   // always reload will be dispatched to authenticate
   useEffect(() => {
-    dispatch({
+    authDispatch({
       type: 'AUTHENTICATE',
     })
     setIsAuthenticating(false)

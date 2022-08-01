@@ -1,4 +1,10 @@
-export const makeRequest = (method: string, data: any): RequestInit => {
+export const api = {
+  url: 'http://localhost:5000/api',
+}
+export const makeRequest = (
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE',
+  dataToSend: any
+): RequestInit => {
   let request: RequestInit = {}
   if (method === 'POST') {
     request = {
@@ -6,7 +12,7 @@ export const makeRequest = (method: string, data: any): RequestInit => {
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataToSend),
     }
   }
   return request
