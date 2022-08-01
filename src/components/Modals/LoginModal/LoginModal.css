@@ -1,8 +1,10 @@
 .login-modal {
-  width: 23%;
+  width: 25%;
   height: 40%;
   background: white;
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -18,7 +20,7 @@
 }
 
 .login-modal .form {
-  width: 100%;
+  width: 80%;
   height: 100%;
   display: flex;
   flex-flow: column;
@@ -26,13 +28,18 @@
   justify-content: center;
 }
 
+.login-modal .msg {
+  margin: 1rem 0;
+  font-size: min(1.5rem, 1vw);
+}
+
 .login-modal label {
-  width: 80%;
+  width: 100%;
 }
 
 .login-modal .buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-flow: row;
   position: relative;
   top: 20px;

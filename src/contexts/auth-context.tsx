@@ -11,8 +11,8 @@ interface IAuthState {
 }
 
 interface IAuthContext {
-  state: IAuthState
-  dispatch: React.Dispatch<IAction>
+  authState: IAuthState
+  authDispatch: React.Dispatch<IAction>
 }
 
 interface IAction {
@@ -24,8 +24,8 @@ const initialState: IAuthState = {
 }
 
 const defaultContext: IAuthContext = {
-  state: initialState,
-  dispatch: () => {},
+  authState: initialState,
+  authDispatch: () => {},
 }
 
 export const AuthContext = createContext<IAuthContext>(defaultContext)
@@ -63,10 +63,10 @@ export const AuthProvider = ({ children }: IProps) => {
     }
   }
 
-  const [state, dispatch] = useReducer(setAuthState, initialState)
+  const [authState, authDispatch] = useReducer(setAuthState, initialState)
 
   return (
-    <AuthContext.Provider value={{ state, dispatch }}>
+    <AuthContext.Provider value={{ authState, authDispatch }}>
       {children}
     </AuthContext.Provider>
   )

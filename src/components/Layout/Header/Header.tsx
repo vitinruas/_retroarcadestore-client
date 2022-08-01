@@ -20,7 +20,7 @@ import LoginModal from '../../Modals/LoginModal/LoginModal'
 interface IProps {}
 
 const Header = ({}: IProps) => {
-  const { state, dispatch: authDispatch } = useAuthContext()
+  const { authState, authDispatch } = useAuthContext()
   const { dispatch: modalDispatch } = useModalContext()
   const handleOpenModal = (reactComponent: ReactElement) => {
     return modalDispatch({
@@ -83,7 +83,7 @@ const Header = ({}: IProps) => {
             </li>
           </div>
           <div className="right">
-            {state.isLogged ? (
+            {authState.isLogged ? (
               <div className="user">
                 <li className="account">Account</li>
                 <li className="account" onClick={handleLogout}>

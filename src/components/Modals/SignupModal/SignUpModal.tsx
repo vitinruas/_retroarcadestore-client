@@ -47,17 +47,19 @@ const SignUpModal = ({}: IProps) => {
   }
 
   // handle signup
-  const { dispatch: authDispatch } = useAuthContext()
+  const { authState, authDispatch } = useAuthContext()
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     signUp({ name, email, password, passwordConfirmation }).then(() => {
       authDispatch({
         type: 'AUTHENTICATE',
       })
-      modalDispatch({
-        type: 'CLOSE',
-        reactComponent: null,
-      })
+      if (authState.isLogged) {
+        modalDispatch({
+          type: 'CLOSE',
+          reactComponent: null,
+        })
+      }
     })
   }
 

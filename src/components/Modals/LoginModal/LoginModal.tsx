@@ -39,17 +39,19 @@ const LoginModal = ({}: IProps) => {
     })
   }
 
-  const { dispatch: authDispatch } = useAuthContext()
+  const { authState, authDispatch } = useAuthContext()
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     login({ email, password }).then(() => {
       authDispatch({
         type: 'AUTHENTICATE',
       })
-      modalDispatch({
-        type: 'CLOSE',
-        reactComponent: null,
-      })
+      if (authState.isLogged) {
+        modalDispatch({
+          type: 'CLOSE',
+          reactComponent: null,
+        })
+      }
     })
   }
 
@@ -69,7 +71,7 @@ const LoginModal = ({}: IProps) => {
         {error || 'Login'}
       </h1>
       <form onSubmit={(e) => handleLogin(e)} className="form">
-        <span>Welcome to back! =)</span>
+        <span className="msg">Welcome to back! =)</span>
         {/* E-mail */}
         <label className="email">
           <span>E-mail:</span>

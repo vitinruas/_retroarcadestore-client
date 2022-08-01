@@ -26,6 +26,11 @@
   justify-content: center;
 }
 
+.signup-modal .msg {
+  margin: 1rem 0;
+  font-size: min(1.5rem, 1vw);
+}
+
 .signup-modal label {
   width: 80%;
 }
