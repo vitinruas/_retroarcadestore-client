@@ -1,7 +1,7 @@
 /* ========= mini nav ========== */
 .header .mini-nav {
   width: 100%;
-  height: 5%;
+  height: 15%;
   background: black;
   position: relative;
   width: 100%;
@@ -58,9 +58,31 @@
   cursor: pointer;
 }
 
+.carrossel-container {
+  width: 500px;
+  overflow: hidden;
+}
+
+.carrossel-effect {
+  animation-name: carrossel-effect;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 30s;
+}
+
+@keyframes carrossel-effect {
+  0% {
+    transform: translateX(-450px);
+  }
+
+  100% {
+    transform: translateX(500px);
+  }
+}
+
 /* ========= user nav ========== */
 .header .user-nav {
-  height: 15%;
+  height: 50%;
   padding: 0 2rem;
   position: relative;
 }
@@ -78,13 +100,20 @@
 }
 
 .header .user-nav ul li a {
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 4px solid transparent;
+}
+
+.header .user-nav ul li a .icons {
+  font-size: 1.2rem;
+  margin-right: 1rem;
 }
 
 .header .user-nav ul li a.active {
-  background-color: transparent;
-  border-bottom: 2px solid var(--s-color);
-  color: white;
+  background-color: transparent !important;
+  border-bottom: 4px solid var(--s-color);
 }
 
 .header .user-nav .right {
@@ -111,8 +140,33 @@
   transform: translate(-50%, -50%);
 }
 
-.header .user-nav .logo img {
+.header .user-nav .logo .retroarcadestore {
   width: 400px;
+}
+
+.header .user-nav .logo .paradise {
+  width: 50px;
+  position: absolute;
+  top: 15px;
+  right: -30px;
+}
+
+.paradise-effect {
+  animation-name: paradise-effect;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes paradise-effect {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
 }
 
 .header .user-nav .authentication,
@@ -124,7 +178,7 @@
 
 /* ========= app nav ========== */
 .header .app-nav {
-  height: 10%;
+  height: 30%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -133,10 +187,4 @@
 .header .app-nav ul {
   display: flex;
   justify-items: center;
-}
-
-/* ========= ad ========== */
-.header .ad {
-  height: 70%;
-  background: var(--s-color);
 }

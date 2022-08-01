@@ -24,6 +24,7 @@ const Home = (props: IProps) => {
 
   return (
     <section className="home">
+      <section className="ad"></section>
       <Search />
       <section className="products">
         <section className="filter">

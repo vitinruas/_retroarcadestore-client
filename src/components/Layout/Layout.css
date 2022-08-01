@@ -6,7 +6,7 @@
 
 .header {
   grid-template: header;
-  height: 80vh;
+  height: 25vh;
 }
 
 .main {

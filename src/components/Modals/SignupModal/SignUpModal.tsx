@@ -87,11 +87,11 @@ const SignUpModal = ({}: IProps) => {
         </label>
         {/* E-mail */}
         <label className="email">
-          <span>E-mail:</span>
+          <span>Email:</span>
           <MdEmail className="icons" />
           <input
             type="email"
-            placeholder="E-mail"
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>

@@ -5,6 +5,7 @@ import { useLogout } from '../../../hooks/user/authentication/useLogout'
 // styles
 import './Header.css'
 import LogoImage from './assets/images/logo.png'
+import ParadiseImage from './assets/images/paradise.png'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaShoppingCart } from 'react-icons/fa'
 import { FaSearch } from 'react-icons/fa'
@@ -16,6 +17,7 @@ import { useAuthContext } from '../../../contexts/auth-context'
 // components
 import SignUpModal from '../../Modals/SignupModal/SignUpModal'
 import LoginModal from '../../Modals/LoginModal/LoginModal'
+import { RiUser3Fill } from 'react-icons/ri'
 
 // interfaces
 interface IProps {}
@@ -48,9 +50,9 @@ const Header = ({}: IProps) => {
               </a>
             </li>
           </div>
-          <div className="center">
-            <li>
-              <a href="">
+          <div className="center carrossel-container">
+            <li className="carrossel-effect">
+              <a>
                 {' '}
                 Bem-vindo(a) ao Retro Arcade Store -&gt; Stay out of the House
                 10% off
@@ -80,18 +82,24 @@ const Header = ({}: IProps) => {
           </div>
           <div className="center">
             <li className="logo">
-              <img src={LogoImage} alt="" />
+              <img
+                className="paradise paradise-effect"
+                src={ParadiseImage}
+                alt=""
+              />
+              <img className="retroarcadestore" src={LogoImage} alt="" />
             </li>
           </div>
           <div className="right">
             {authState.isLogged ? (
               <div className="user">
                 <li>
-                  <NavLink to={'/account'} className="account">
-                    Account
+                  <NavLink to={'/account'} className="link-account">
+                    <RiUser3Fill className="icons" />
+                    <span>Account</span>
                   </NavLink>
                 </li>
-                <li className="account" onClick={handleLogout}>
+                <li className="link-account" onClick={handleLogout}>
                   Logout
                 </li>
               </div>
@@ -147,7 +155,6 @@ const Header = ({}: IProps) => {
         </ul>
       </nav>
       {/* ad */}
-      <section className="ad"></section>
     </header>
   )
 }

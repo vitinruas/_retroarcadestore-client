@@ -1,0 +1,47 @@
+.address {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+}
+.address .warning {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  background: var(--s-color);
+  color: white;
+  padding: 0.5rem 0.5rem;
+}
+
+.address .warning .icons {
+  margin: 0 1rem;
+  font-size: 2rem;
+  color: var(--t-color);
+}
+
+.address form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 90%;
+}
+
+.address form label {
+  width: 100%;
+}
+
+.address form label.one-line {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.address form label.one-line input {
+  width: 95%;
+}

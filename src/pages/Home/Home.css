@@ -5,6 +5,13 @@
   flex-flow: column;
 }
 
+/* ========= ad ========== */
+.home .ad {
+  height: 300px;
+  width: 98.9vw;
+  background: var(--s-color);
+}
+
 .home .products {
   width: 100%;
   display: flex;
