@@ -63,6 +63,11 @@ form input {
   color: #1a1a3a;
 }
 
+form input.mark-input {
+  border-color: var(--p-color);
+  outline-color: var(--p-color);
+}
+
 form label .icons {
   font-size: 1.2rem;
   position: absolute;

@@ -81,14 +81,14 @@ const Header = ({}: IProps) => {
             </li>
           </div>
           <div className="center">
-            <li className="logo">
+            <NavLink to={'/'} className="logo">
               <img
                 className="paradise paradise-effect"
                 src={ParadiseImage}
                 alt=""
               />
               <img className="retroarcadestore" src={LogoImage} alt="" />
-            </li>
+            </NavLink>
           </div>
           <div className="right">
             {authState.isLogged ? (

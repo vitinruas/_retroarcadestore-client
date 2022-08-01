@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.header .active {
+.header .nav-button.active {
   background: var(--p-color) !important;
 }
 
@@ -112,7 +112,6 @@
 }
 
 .header .user-nav ul li a.active {
-  background-color: transparent !important;
   border-bottom: 4px solid var(--s-color);
 }
 
@@ -156,7 +155,7 @@
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
   animation-iteration-count: infinite;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
 }
 
 @keyframes paradise-effect {
@@ -165,7 +164,7 @@
   }
 
   100% {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 }
 

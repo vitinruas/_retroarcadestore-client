@@ -8,22 +8,66 @@ import Account from './Client/Account/Account'
 import Profile from './Client/Account/Profile/Profile'
 import { Navigate } from 'react-router-dom'
 import Address from './Client/Account/Address/Address'
+import { useAuthContext } from '../contexts/auth-context'
 
 type IProps = {}
 
 const Pages = (props: IProps) => {
+  const { authState } = useAuthContext()
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/account" element={<Navigate to={'/account/profile'} />} />
+        <Route
+          path="/account"
+          element={
+            authState.isLogged ? (
+              <Navigate to={'/account/profile'} />
+            ) : (
+              <Navigate to={'/'} />
+            )
+          }
+        />
         <Route
           path="/account/profile"
-          element={<Account children={<Profile />} />}
+          element={
+            authState.isLogged ? (
+              <Account children={<Profile />} />
+            ) : (
+              <Navigate to={'/'} />
+            )
+          }
         />
         <Route
           path="/account/address"
-          element={<Account children={<Address />} />}
+          element={
+            authState.isLogged ? (
+              <Account children={<Address />} />
+            ) : (
+              <Navigate to={'/'} />
+            )
+          }
+        />
+        <Route
+          path="/account/changePassword"
+          element={
+            authState.isLogged ? (
+              <Account children={<Address />} />
+            ) : (
+              <Navigate to={'/'} />
+            )
+          }
+        />
+
+        <Route
+          path="/account/advanced"
+          element={
+            authState.isLogged ? (
+              <Account children={<Address />} />
+            ) : (
+              <Navigate to={'/'} />
+            )
+          }
         />
         <Route path="*" element={<Error404 />} />
       </Routes>

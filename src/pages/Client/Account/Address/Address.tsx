@@ -27,7 +27,11 @@ const Address = (props: IProps) => {
           <label>
             <span>Postal Code:</span>
             <MdMapsHomeWork className="icons" />
-            <input type="text" placeholder="Postal Code" />
+            <input
+              className="mark-input"
+              type="text"
+              placeholder="Postal Code"
+            />
           </label>
           <label>
             <span>District:</span>
