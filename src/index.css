@@ -56,7 +56,7 @@ form label {
 form input,
 form select {
   width: 100%;
-  padding: 1.5% 1% 1.5% 2rem;
+  padding: 0.35rem 1rem 0.35rem 2rem;
   border: 1px solid var(--s-color);
   outline: 1px solid var(--s-color);
   font: bold 0.9rem 'Roboto';
@@ -81,7 +81,7 @@ form input.mark-input {
 form label .icons {
   font-size: 1.2rem;
   position: absolute;
-  top: 26px;
+  top: 29px;
   left: 8px;
 }
 
