@@ -19,7 +19,7 @@ import { useModalContext } from '../../../contexts/modal-context'
 interface IProps {
   product: IProduct
 }
-import { IProduct } from '../../../protocols/product/product-entitie'
+import { IProduct } from '../../../protocols/entities/product/product-entitie'
 
 const ProductModal = ({ product }: IProps) => {
   const { dispatch } = useModalContext()

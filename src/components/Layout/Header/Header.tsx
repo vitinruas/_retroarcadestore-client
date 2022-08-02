@@ -7,7 +7,6 @@ import './Header.css'
 import LogoImage from './assets/images/logo.png'
 import ParadiseImage from './assets/images/paradise.png'
 import { AiFillHeart } from 'react-icons/ai'
-import { FaShoppingCart } from 'react-icons/fa'
 import { FaSearch } from 'react-icons/fa'
 
 // contexts
@@ -18,6 +17,8 @@ import { useAuthContext } from '../../../contexts/auth-context'
 import SignUpModal from '../../Modals/Account/Authentication/SignupModal/SignUpModal'
 import LoginModal from '../../Modals/Account/Authentication/LoginModal/LoginModal'
 import { RiUser3Fill } from 'react-icons/ri'
+import { BsFillBagFill } from 'react-icons/bs'
+import { IoBagHandleSharp } from 'react-icons/io5'
 
 // interfaces
 interface IProps {}
@@ -124,7 +125,7 @@ const Header = ({}: IProps) => {
               <AiFillHeart className="icons" />
             </li>
             <li className="cart">
-              <FaShoppingCart className="icons" />
+              <IoBagHandleSharp className="icons" />
             </li>
           </div>
         </ul>

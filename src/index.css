@@ -53,7 +53,8 @@ form label {
   position: relative;
 }
 
-form input {
+form input,
+form select {
   width: 100%;
   padding: 1.5% 1% 1.5% 2rem;
   border: 1px solid var(--s-color);
@@ -61,6 +62,15 @@ form input {
   font: bold 0.9rem 'Roboto';
   font-size: min(1rem, 1vw);
   color: #1a1a3a;
+}
+
+form select:hover {
+  cursor: pointer;
+}
+
+form select option {
+  font: bold 0.9rem 'Roboto';
+  cursor: pointer;
 }
 
 form input.mark-input {
@@ -71,7 +81,7 @@ form input.mark-input {
 form label .icons {
   font-size: 1.2rem;
   position: absolute;
-  top: 28px;
+  top: 26px;
   left: 8px;
 }
 

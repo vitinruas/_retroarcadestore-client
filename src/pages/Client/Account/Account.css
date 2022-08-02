@@ -27,18 +27,19 @@
   align-items: flex-start;
 }
 
-.account .account-nav li {
+.account .account-nav a {
   width: 100%;
-  text-align: center;
-  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
 }
 
-.account .account-nav li a {
-  text-align: center;
+.account .account-nav .icons {
+  margin-right: 0.8rem;
 }
 
-.account .account-nav li a.active {
-  width: 300px;
+.account .account-nav a.active {
   color: white;
   background: var(--s-color);
 }

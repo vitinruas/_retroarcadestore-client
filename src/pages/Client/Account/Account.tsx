@@ -1,4 +1,8 @@
 import React, { ReactElement } from 'react'
+import { AiFillLock } from 'react-icons/ai'
+import { FaMapSigns } from 'react-icons/fa'
+import { IoMdOptions } from 'react-icons/io'
+import { RiUser3Fill } from 'react-icons/ri'
 import { NavLink } from 'react-router-dom'
 
 // styles
@@ -15,18 +19,25 @@ const Account = ({ children }: IProps) => {
       <section className="container">
         <nav className="account-nav">
           <ul>
-            <li>
-              <NavLink to={'/account/profile'}>Profile</NavLink>
-            </li>
-            <li>
-              <NavLink to={'/account/address'}>Address</NavLink>
-            </li>
-            <li>
-              <NavLink to={'/account/changePassword'}>Password</NavLink>
-            </li>
-            <li>
-              <NavLink to={'/account/advanced'}>Advanced</NavLink>
-            </li>
+            <NavLink to={'/account/profile'}>
+              <RiUser3Fill className="icons" />
+              <span>Profile</span>
+            </NavLink>
+            <NavLink to={'/account/address'}>
+              <FaMapSigns className="icons" />
+
+              <span>Address</span>
+            </NavLink>
+            <NavLink to={'/account/changePassword'}>
+              <AiFillLock className="icons" />
+
+              <span>Password</span>
+            </NavLink>
+            <NavLink to={'/account/advanced'}>
+              <IoMdOptions className="icons" />
+
+              <span>Advanced</span>
+            </NavLink>
           </ul>
         </nav>
         <section className="content">{children}</section>

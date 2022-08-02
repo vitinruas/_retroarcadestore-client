@@ -5,6 +5,7 @@
   align-items: center;
 }
 
-.address .informations label.one-line input {
+.address .informations label.one-line input,
+.address .informations label.one-line select {
   width: 95%;
 }

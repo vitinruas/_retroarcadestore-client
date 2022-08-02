@@ -4,7 +4,7 @@ import Product from '../../components/Product/Product'
 import Search from '../../components/Search/Search'
 import { useModalContext } from '../../contexts/modal-context'
 import products_list from '../../mocks/products'
-import { IProduct } from '../../protocols/product/product-entitie'
+import { IProduct } from '../../protocols/entities/product/product-entitie'
 
 // styles
 import './Home.css'

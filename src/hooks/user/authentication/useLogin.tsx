@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { useFetch } from '../../useFetch'
 import { useAuthContext } from '../../../contexts/auth-context'
 // api
-import { api } from '../../../components/helpers/request'
+import { api } from '../../../helpers/url'
 // interfaces
-import { IAuthenticationModel } from '../../../protocols/user/authentication-protocol'
+import { IAuthenticationModel } from '../../../protocols/usecase/authentication-protocol'
 
 export const useLogin = () => {
   const [error, setError] = useState<string | null>(null)
@@ -14,8 +14,9 @@ export const useLogin = () => {
 
   const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)
+    const url = `${api.restAPI}/login`
     const { receivedError, receivedData } = await useFetch(
-      api.url + '/login',
+      url,
       'POST',
       authenticationData
     )

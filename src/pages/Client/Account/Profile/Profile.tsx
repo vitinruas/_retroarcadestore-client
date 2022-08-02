@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 // styles
 import './Profile.css'
 import ProfileImage from './assets/images/profile.png'
-import { MdEmail } from 'react-icons/md'
 import { RiUser3Fill } from 'react-icons/ri'
+import { MdEmail } from 'react-icons/md'
 import { FaBirthdayCake } from 'react-icons/fa'
 
 type Props = {}

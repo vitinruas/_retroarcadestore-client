@@ -1,12 +1,14 @@
-export const api = {
-  url: 'http://localhost:5000/api',
-}
+export const api = {}
 export const makeRequest = (
   method: 'GET' | 'POST' | 'PUT' | 'DELETE',
   dataToSend: any
 ): RequestInit => {
   let request: RequestInit = {}
-  if (method === 'POST') {
+  if (method === 'GET' && !dataToSend) {
+    request = {
+      method,
+    }
+  } else if (method === 'POST') {
     request = {
       headers: {
         'Content-Type': 'application/json',
