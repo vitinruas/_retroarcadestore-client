@@ -141,8 +141,8 @@ form input:focus {
 
 .close {
   position: absolute;
-  top: -20px;
-  right: -30px;
+  top: -15px;
+  right: -15px;
   color: var(--p-color);
   z-index: 1;
 }

@@ -18,7 +18,7 @@
   background: none;
 }
 
-.search .icons {
+.search button .icons {
   font-size: 1rem;
   cursor: pointer;
   position: absolute;

@@ -132,6 +132,10 @@
   color: var(--p-color);
 }
 
+.header .search .icons {
+  font-size: 1rem;
+}
+
 .header .user-nav .logo {
   position: absolute;
   left: 51%;
