@@ -29,14 +29,21 @@
 
 .account .account-nav a {
   width: 100%;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  position: relative;
 }
 
 .account .account-nav .icons {
-  margin-right: 0.8rem;
+  position: absolute;
+  left: 30px;
+}
+
+.account .account-nav span {
+  position: absolute;
+  left: 70px;
 }
 
 .account .account-nav a.active {

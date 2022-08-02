@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react'
 import { AiFillLock } from 'react-icons/ai'
 import { FaMapSigns } from 'react-icons/fa'
-import { IoMdOptions } from 'react-icons/io'
-import { RiUser3Fill } from 'react-icons/ri'
+import { RiSettings4Fill, RiUser3Fill } from 'react-icons/ri'
 import { NavLink } from 'react-router-dom'
 
 // styles
@@ -34,7 +33,7 @@ const Account = ({ children }: IProps) => {
               <span>Password</span>
             </NavLink>
             <NavLink to={'/account/advanced'}>
-              <IoMdOptions className="icons" />
+              <RiSettings4Fill className="icons" />
 
               <span>Advanced</span>
             </NavLink>
