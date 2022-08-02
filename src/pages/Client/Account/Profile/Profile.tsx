@@ -13,25 +13,20 @@ const Profile = (props: Props) => {
   const [photo, setPhoto] = useState<string | null>(null)
   return (
     <section className="profile">
-      {/* photo */}
       <div className="photo" title="Change image?">
         {photo ? <img src="" /> : <img src={ProfileImage} />}
       </div>
-      {/* informations */}
       <form className="informations">
-        {/* Name */}
         <label>
           <span>Name:</span>
           <RiUser3Fill className="icons" />
           <input type="text" placeholder="Name" />
         </label>
-        {/* Email */}
         <label>
           <span>Email:</span>
           <MdEmail className="icons" />
           <input type="email" placeholder="Email" />
         </label>
-        {/* BirthDay */}
         <label>
           <span>BirthDay:</span>
           <FaBirthdayCake className="icons" />

@@ -17,7 +17,7 @@ const Address = (props: IProps) => {
           You can enter your zip code to fill other fields automatically
         </span>
       </div>
-      <form>
+      <form className="informations">
         <label>
           <span>Street:</span>
           <FaMapMarkerAlt className="icons" />

@@ -9,6 +9,7 @@ import Account from './Client/Account/Account'
 import Profile from './Client/Account/Profile/Profile'
 import Address from './Client/Account/Address/Address'
 import ChangePassword from './Client/Account/ChangePassword/ChangePassword'
+import Advanced from './Client/Account/Advanced/Advanced'
 
 // context
 import { useAuthContext } from '../contexts/auth-context'
@@ -66,7 +67,7 @@ const Pages = (props: IProps) => {
           path="/account/advanced"
           element={
             authState.isLogged ? (
-              <Account children={<Address />} />
+              <Account children={<Advanced />} />
             ) : (
               <Navigate to={'/'} />
             )
