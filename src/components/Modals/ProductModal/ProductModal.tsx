@@ -46,7 +46,7 @@ const ProductModal = ({ product }: IProps) => {
   const { convert } = usePriceConverterContext()
   return (
     <div className="product-modal">
-      <button className="btn close" onClick={handleCloseProductModal}>
+      <button className="btn close-button" onClick={handleCloseProductModal}>
         <IoCloseCircleSharp className="icons" />
       </button>
       {/* images */}

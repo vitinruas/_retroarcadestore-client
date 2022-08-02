@@ -139,6 +139,7 @@
 
 .product-modal .container .favorite {
   color: var(--p-color);
+  margin-left: 1rem;
 }
 
 /* ============= quantity ============= */
@@ -169,7 +170,7 @@
 
 .product-modal .cart span,
 .product-modal .buy span {
-  width: 60px;
+  width: 80px;
   margin: 0 0.2rem;
 }
 

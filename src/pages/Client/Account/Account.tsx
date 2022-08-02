@@ -22,7 +22,7 @@ const Account = ({ children }: IProps) => {
               <NavLink to={'/account/address'}>Address</NavLink>
             </li>
             <li>
-              <NavLink to={'/account/changePassword'}>Change Password</NavLink>
+              <NavLink to={'/account/changePassword'}>Password</NavLink>
             </li>
             <li>
               <NavLink to={'/account/advanced'}>Advanced</NavLink>

@@ -1,16 +1,19 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import { Navigate } from 'react-router-dom'
 // pages
 import Error404 from './errors/404/Error404'
 import Home from './Home/Home'
 import Account from './Client/Account/Account'
 import Profile from './Client/Account/Profile/Profile'
-import { Navigate } from 'react-router-dom'
 import Address from './Client/Account/Address/Address'
+import ChangePassword from './Client/Account/ChangePassword/ChangePassword'
+
+// context
 import { useAuthContext } from '../contexts/auth-context'
 
-type IProps = {}
+interface IProps {}
 
 const Pages = (props: IProps) => {
   const { authState } = useAuthContext()
@@ -52,7 +55,7 @@ const Pages = (props: IProps) => {
           path="/account/changePassword"
           element={
             authState.isLogged ? (
-              <Account children={<Address />} />
+              <Account children={<ChangePassword />} />
             ) : (
               <Navigate to={'/'} />
             )

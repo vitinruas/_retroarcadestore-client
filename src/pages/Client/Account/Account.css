@@ -25,18 +25,20 @@
   display: flex;
   flex-flow: column;
   align-items: flex-start;
-  margin-top: 0rem;
 }
 
 .account .account-nav li {
   width: 100%;
-  padding: 1rem 0;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.account .account-nav li a {
   text-align: center;
 }
 
-.account .account-nav li .active {
-  padding: 1rem 3.8rem;
-  background: var(--s-color);
+.account .account-nav li a.active {
+  width: 300px;
   color: white;
   background: var(--s-color);
 }
