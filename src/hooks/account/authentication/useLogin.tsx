@@ -5,28 +5,24 @@ import { useAuthContext } from '../../../contexts/auth-context'
 // api
 import { api } from '../../../helpers/url'
 // interfaces
-import { ISignUpModel } from '../../../protocols/usecase/signup-protocol'
+import { IAuthenticationModel } from '../../../protocols/usecase/account/authentication/authentication-protocol'
 
-export const useSignUp = () => {
+export const useLogin = () => {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const { authState, authDispatch } = useAuthContext()
 
-  const signUp = async (signUpData: ISignUpModel | null) => {
+  const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)
     const url = `${api.restAPI}/login`
-
     const { receivedError, receivedData } = await useFetch(
       url,
       'POST',
-      signUpData
+      authenticationData
     )
     // check if in response there is access token
     if (receivedData && receivedData['accessToken']) {
-      localStorage.setItem(
-        'accessToken',
-        JSON.stringify(receivedData['accessToken'])
-      )
+      localStorage.setItem('accessToken', receivedData['accessToken'])
       // if don't logged, send signal to change global state
       if (!authState.isLogged) {
         authDispatch({
@@ -38,5 +34,5 @@ export const useSignUp = () => {
     }
     setLoading(false)
   }
-  return { error, loading, signUp }
+  return { error, loading, login }
 }

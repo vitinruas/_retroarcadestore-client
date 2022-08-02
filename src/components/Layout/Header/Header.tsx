@@ -1,6 +1,6 @@
 import React, { ReactElement, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useLogout } from '../../../hooks/user/authentication/useLogout'
+import { useLogout } from '../../../hooks/account/authentication/useLogout'
 
 // styles
 import './Header.css'

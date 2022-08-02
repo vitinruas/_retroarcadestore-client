@@ -16,7 +16,7 @@ import { useModalContext } from '../../../../../contexts/modal-context'
 import { useAuthContext } from '../../../../../contexts/auth-context'
 
 // hooks
-import { useLogin } from '../../../../../hooks/user/authentication/useLogin'
+import { useLogin } from '../../../../../hooks/account/authentication/useLogin'
 
 // interfaces
 interface IProps {}

@@ -30,7 +30,7 @@ const ChangePassword = (props: IProps) => {
           <AiFillLock className="icons" />
           <input type="password" placeholder="New Password Confirmation" />
         </label>
-        <button className="btn btn-primary">Salvar</button>
+        <button className="btn btn-primary">Save</button>
       </form>
     </section>
   )

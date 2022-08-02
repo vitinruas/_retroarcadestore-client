@@ -135,7 +135,7 @@ const Address = (props: IProps) => {
             </select>
           </label>
         </label>
-        <button className="btn btn-primary">Salvar</button>
+        <button className="btn btn-primary">Save</button>
       </form>
     </section>
   )

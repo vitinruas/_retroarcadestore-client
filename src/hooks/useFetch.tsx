@@ -9,13 +9,14 @@ interface IFetch {
 export const useFetch = async (
   url: string,
   method: 'GET' | 'POST' | 'PUT' | 'DELETE',
-  dataToSend?: any
+  dataToSend?: any,
+  accessToken?: string | null
 ): Promise<IFetch> => {
   let receivedData: any
   let receivedError: any
   let statusCode: number = 0
   try {
-    const request = makeRequest(method, dataToSend)
+    const request = makeRequest(method, dataToSend, accessToken)
     const response = await fetch(url, request)
     statusCode = response.status
     const data = await response.json()

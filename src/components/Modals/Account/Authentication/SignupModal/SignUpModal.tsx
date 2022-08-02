@@ -15,7 +15,7 @@ import { useModalContext } from '../../../../../contexts/modal-context'
 import LoginModal from '../LoginModal/LoginModal'
 
 // hooks
-import { useSignUp } from '../../../../../hooks/user/authentication/useSignUp'
+import { useSignUp } from '../../../../../hooks/account/authentication/useSignUp'
 import { useAuthContext } from '../../../../../contexts/auth-context'
 
 // interfaces
