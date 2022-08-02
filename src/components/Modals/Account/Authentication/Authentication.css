@@ -1,0 +1,65 @@
+.login-modal,
+.signup-modal {
+  background: white;
+  position: relative;
+}
+
+.signup-modal form,
+.login-modal form {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal form label,
+.signup-modal form label {
+  width: 100%;
+}
+
+.login-modal .title,
+.signup-modal .title {
+  font-size: min(1rem, 0.9vw);
+  color: white;
+  background: var(--s-color);
+  padding: 0.5rem 0.5rem;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.login-modal .msg,
+.signup-modal .msg {
+  margin: 1rem 0;
+  font-size: min(1.5rem, 1vw);
+}
+
+.authentication-error-effect {
+  animation-name: authentication-error-effect;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes authentication-error-effect {
+  from {
+    background: var(--s-color);
+  }
+  to {
+    background: var(--p-color);
+  }
+}
+
+.signup-modal .buttons,
+.login-modal .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row;
+  position: relative;
+  top: 20px;
+}

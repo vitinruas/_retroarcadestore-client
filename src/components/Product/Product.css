@@ -56,3 +56,38 @@
 .product .name > h2 {
   font-weight: normal;
 }
+
+/* effects */
+
+.zoom-in-image {
+  animation-name: zoom-in-image;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom-in-image {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+
+.zoom-out-image {
+  animation-name: zoom-out-image;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom-out-image {
+  from {
+    transform: scale(1.3);
+  }
+  to {
+    transform: scale(1);
+  }
+}

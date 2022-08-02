@@ -15,8 +15,8 @@ import { useModalContext } from '../../../contexts/modal-context'
 import { useAuthContext } from '../../../contexts/auth-context'
 
 // components
-import SignUpModal from '../../Modals/SignupModal/SignUpModal'
-import LoginModal from '../../Modals/LoginModal/LoginModal'
+import SignUpModal from '../../Modals/Account/Authentication/SignupModal/SignUpModal'
+import LoginModal from '../../Modals/Account/Authentication/LoginModal/LoginModal'
 import { RiUser3Fill } from 'react-icons/ri'
 
 // interfaces

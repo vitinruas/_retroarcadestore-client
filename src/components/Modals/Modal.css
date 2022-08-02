@@ -8,3 +8,17 @@
   justify-content: center;
   align-items: center;
 }
+
+.close-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  color: var(--p-color);
+  z-index: 1;
+}
+
+.close-button .icons {
+  font-size: 2rem;
+  border-radius: 50%;
+  background: white;
+}

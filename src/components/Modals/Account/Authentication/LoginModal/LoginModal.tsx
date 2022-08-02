@@ -2,6 +2,8 @@ import React, { ReactElement, useEffect, useRef, useState } from 'react'
 
 // styles
 import './LoginModal.css'
+import '../Authentication.css'
+
 import { IoCloseCircleSharp } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
 import { RiLockPasswordFill } from 'react-icons/ri'
@@ -10,11 +12,11 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 import SignUpModal from '../SignupModal/SignUpModal'
 
 // contexts
-import { useModalContext } from '../../../contexts/modal-context'
-import { useAuthContext } from '../../../contexts/auth-context'
+import { useModalContext } from '../../../../../contexts/modal-context'
+import { useAuthContext } from '../../../../../contexts/auth-context'
 
 // hooks
-import { useLogin } from '../../../hooks/user/authentication/useLogin'
+import { useLogin } from '../../../../../hooks/user/authentication/useLogin'
 
 // interfaces
 interface IProps {}
@@ -58,7 +60,7 @@ const LoginModal = ({}: IProps) => {
 
   return (
     <section className="login-modal">
-      <button className="btn close" onClick={handleCloseLoginModal}>
+      <button className="btn close-button" onClick={handleCloseLoginModal}>
         <IoCloseCircleSharp className="icons" />
       </button>
       <h1 className="title" ref={titleRef}>
