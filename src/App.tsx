@@ -27,7 +27,7 @@ function App() {
   }, [])
 
   return isAuthenticating ? (
-    <span>Loading...</span>
+    <span className="msg-loading">Loading...</span>
   ) : (
     <>
       {config.isOpen && <Modal />}

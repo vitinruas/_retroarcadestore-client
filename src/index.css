@@ -148,3 +148,10 @@ form input:focus {
   background: var(--t-color);
   color: white;
 }
+
+.msg-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

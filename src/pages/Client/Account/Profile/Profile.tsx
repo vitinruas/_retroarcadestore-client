@@ -81,65 +81,71 @@ const Profile = (props: IProps) => {
 
   // setup messages
   useEffect(() => {
-    if (getClientError || updateClientError) {
-      setSuccess(null)
-      setError(getClientError || updateClientError)
-    }
+    setError(getClientError || updateClientError)
   }, [getClientError, updateClientError])
   useEffect(() => {
-    if (updateClientSuccess) {
-      setError(null)
-      setSuccess(updateClientSuccess)
-    }
+    setSuccess(updateClientSuccess)
   }, [updateClientSuccess])
 
   return (
     <section className="profile">
-      <span className="id">Account ID: {client && client.uid}</span>
+      {/* section loading */}
+      {getClientLoading ? (
+        <span className="msg-loading">Loading...</span>
+      ) : (
+        <>
+          {/* account id */}
+          <span className="id">Account ID: {client && client.uid}</span>
 
-      {success && <ClientMessage state="SUCCESS" message={success} />}
-      {error && <ClientMessage state="ERROR" message={error} />}
+          {/* message profile */}
+          {success && <ClientMessage state="SUCCESS" message={success} />}
+          {error && <ClientMessage state="ERROR" message={error} />}
 
-      <div className="photo" title="Change image?">
-        {photo ? <img src={photo} /> : <img src={ProfileImage} />}
-      </div>
-      <form className="informations" onSubmit={handleUpdateClient}>
-        <label>
-          <span>Name:</span>
-          <RiUser3Fill className="icons" />
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <label>
-          <span>Email:</span>
-          <MdEmail className="icons" />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          <span>BirthDay:</span>
-          <FaBirthdayCake className="icons" />
-          <input
-            type="date"
-            placeholder="BirthDay"
-            value={birthDay}
-            onChange={(e) => setBirthDay(e.target.value)}
-          />
-        </label>
-        {updateClietSuccess ? (
-          <button className="btn btn-primary disabled">Loading...</button>
-        ) : (
-          <button className="btn btn-primary">Save</button>
-        )}
-      </form>
+          {/* photo profile */}
+          <div className="photo" title="Change image?">
+            {photo ? <img src={photo} /> : <img src={ProfileImage} />}
+          </div>
+
+          {/* form profile */}
+          <form className="informations" onSubmit={handleUpdateClient}>
+            <label>
+              <span>Name:</span>
+              <RiUser3Fill className="icons" />
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <label>
+              <span>Email:</span>
+              <MdEmail className="icons" />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+            <label>
+              <span>BirthDay:</span>
+              <FaBirthdayCake className="icons" />
+              <input
+                type="date"
+                placeholder="BirthDay"
+                value={birthDay}
+                onChange={(e) => setBirthDay(e.target.value)}
+              />
+            </label>
+            {updateClietSuccess ? (
+              <button className="btn btn-primary disabled">Loading...</button>
+            ) : (
+              <button className="btn btn-primary">Save</button>
+            )}
+          </form>
+        </>
+      )}
     </section>
   )
 }
