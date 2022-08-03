@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom'
 // styles
 import './Account.css'
 
+// interfaces
 interface IProps {
   children: ReactElement
 }

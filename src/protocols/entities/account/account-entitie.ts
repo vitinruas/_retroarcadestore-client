@@ -5,9 +5,9 @@ export interface IAccountEntitie {
   password: string
   accessToken: string
   isAdmin?: boolean
-  createdAt?: string
+  createdAt: string
   updatedAt?: string
-  authenticatedAt?: string
+  authenticatedAt: string
   isClosed?: boolean
   closedAt?: string
 }

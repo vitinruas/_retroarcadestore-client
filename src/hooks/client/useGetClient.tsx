@@ -8,7 +8,7 @@ import { IClientEntitie } from '../../protocols/entities/account/client-entitie'
 interface IUseGetClient {
   error: string | null
   loading: boolean
-  client: any
+  client: IClientEntitie | null
   getClient: () => {}
 }
 

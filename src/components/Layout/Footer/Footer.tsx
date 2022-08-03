@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 // styles
 import './Footer.css'
@@ -13,18 +14,16 @@ const Footer = (props: Props) => {
         <div className="app-nav">
           <ul>
             <li>
-              <a href="" className="active">
-                Página Inicial
-              </a>
+              <NavLink to={'/'}>Home</NavLink>
             </li>
             <li>
-              <a href="">Jogos</a>
+              <NavLink to={'/games'}>Games</NavLink>
             </li>
             <li>
-              <a href="">Roupas</a>
+              <NavLink to={'/clothes'}>Clothes</NavLink>
             </li>
             <li>
-              <a href="">Acessórios</a>
+              <NavLink to={'/accessories'}>Accessories</NavLink>
             </li>
           </ul>
         </div>
@@ -32,16 +31,16 @@ const Footer = (props: Props) => {
         <div className="user-nav">
           <ul>
             <li>
-              <a href="">Minha Conta</a>
+              <NavLink to={'/account/profile'}>My Account</NavLink>
             </li>
             <li>
-              <a href="">Carrinho</a>
+              <NavLink to={'/null'}>Cart</NavLink>
             </li>
             <li>
-              <a href="">Favoritos</a>
+              <NavLink to={'/null'}>Favorites</NavLink>
             </li>
             <li>
-              <a href="">Endereço</a>
+              <NavLink to={'/account/address'}>Address</NavLink>
             </li>
           </ul>
         </div>
@@ -54,13 +53,13 @@ const Footer = (props: Props) => {
               </a>
             </li>
             <li>
-              <a href="">Termos de Uso</a>
+              <NavLink to={'/null'}>Terms and Conditions</NavLink>
             </li>
             <li>
-              <a href="">Sobre</a>
+              <NavLink to={'/null'}>About us</NavLink>
             </li>
             <li>
-              <a href="">Contato</a>
+              <NavLink to={'/null'}>Contact</NavLink>
             </li>
           </ul>
         </div>

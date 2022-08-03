@@ -14,5 +14,6 @@ export interface IAddress {
 
 export interface IClientEntitie extends IAccountEntitie {
   photo?: string
+  birthDay?: string
   address?: IAddress
 }

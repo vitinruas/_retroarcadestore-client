@@ -20,3 +20,11 @@
 .profile .photo img:hover {
   border-color: var(--t-color);
 }
+
+.profile .id {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: gray;
+  font-size: min(0.7rem, 0.6vw);
+}

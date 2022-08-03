@@ -97,3 +97,9 @@
   margin: 0 1rem;
   color: var(--t-color);
 }
+
+.account .msg-client {
+  position: absolute;
+  left: 4px;
+  top: -53px;
+}

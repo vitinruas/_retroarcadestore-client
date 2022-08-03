@@ -29,10 +29,12 @@ export const useUpdateClient = (): IUseUpdateClient => {
       accessToken
     )
     // check if in response there is access token
-    if (receivedData && statusCode === 204) {
+    if (statusCode === 204) {
       setSuccess('Your data have been successfully updated')
+      setError(null)
     } else {
       setError(receivedError)
+      setSuccess(null)
     }
     setLoading(false)
   }

@@ -36,7 +36,7 @@ const Address = (props: IProps) => {
   }, [])
   // zipcode
   useEffect(() => {
-    if (country && zipCode.length >= 5) {
+    if (country && zipCode.length >= 5 && zipCode.length <= 12) {
       getAddressZipCode(zipCode, country)
     }
   }, [zipCode, country])

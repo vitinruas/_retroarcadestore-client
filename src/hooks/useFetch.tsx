@@ -16,10 +16,11 @@ export const useFetch = async (
   let receivedError: any
   let statusCode: number = 0
   try {
-    const request = makeRequest(method, dataToSend, accessToken)
-    const response = await fetch(url, request)
+    const request: RequestInit = makeRequest(method, dataToSend, accessToken)
+    const response: Response = await fetch(url, request)
+    const data: any = response.status !== 204 ? await response.json() : null
     statusCode = response.status
-    const data = await response.json()
+
     if (response.status >= 400) {
       receivedError = data
     }

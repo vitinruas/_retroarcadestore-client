@@ -55,20 +55,20 @@ const Header = ({}: IProps) => {
             <li className="carrossel-effect">
               <a>
                 {' '}
-                Bem-vindo(a) ao Retro Arcade Store -&gt; Stay out of the House
-                10% off
+                Welcome to Retro Arcade Store -&gt; Stay out of the House 10%
+                off
               </a>
             </li>
           </div>
           <div className="right">
             <li>
-              <a href="">Termos de Uso</a>
+              <a href="">Terms and conditions</a>
             </li>
             <li>
-              <a href="">Sobre</a>
+              <a href="">About us</a>
             </li>
             <li>
-              <a href="">Contato</a>
+              <a href="">Contact</a>
             </li>
           </div>
         </ul>
@@ -135,22 +135,22 @@ const Header = ({}: IProps) => {
         <ul>
           <li>
             <NavLink to={'/'} className="nav-button">
-              Página Principal
+              The Retro Arcade
             </NavLink>
           </li>
           <li>
             <NavLink to={'/games'} className="nav-button">
-              Jogos
+              Games
             </NavLink>
           </li>
           <li>
             <NavLink to={'/clothes'} className="nav-button">
-              Roupas
+              Clothes
             </NavLink>
           </li>
           <li>
             <NavLink to={'/accessories'} className="nav-button">
-              Acessórios
+              Accessories
             </NavLink>
           </li>
         </ul>

@@ -11,21 +11,30 @@ import { FaBirthdayCake } from 'react-icons/fa'
 import { useGetClient } from '../../../../hooks/client/useGetClient'
 import { useUpdateClient } from '../../../../hooks/client/useUpdateClient'
 import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/update-client-protocol'
+import { IClientEntitie } from '../../../../protocols/entities/account/client-entitie'
+import { BsFillExclamationSquareFill } from 'react-icons/bs'
+import ClientMessage from '../../../../components/Messages/Client/ClientMessage'
 
 // interface
-
 interface IProps {}
+interface IFormData {
+  name?: string
+  email?: string
+  birthDay?: string
+}
 
 const Profile = (props: IProps) => {
   const [photo, setPhoto] = useState<string>('')
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [birthDay, setBirthDay] = useState<string>('')
+  const [error, setError] = useState<string | null>('')
+  const [success, setSuccess] = useState<string | null>('')
 
   // get client data
   const {
-    error: errorGetClient,
-    loading: loadingGetClient,
+    error: getClientError,
+    loading: getClientLoading,
     client,
     getClient,
   } = useGetClient()
@@ -38,34 +47,59 @@ const Profile = (props: IProps) => {
       setPhoto(client.photo || '')
       setName(client.name)
       setEmail(client.email)
+      setBirthDay(client.birthDay || '')
     }
   }, [client])
 
   // update client data
   const {
-    error: errorUpdateClient,
-    loading: loadingUpdateClient,
-    success,
+    error: updateClientError,
+    loading: updateClietSuccess,
+    success: updateClientSuccess,
     updateClient,
   } = useUpdateClient()
 
   const handleUpdateClient = (e: any) => {
     e.preventDefault()
-
-    const dataForm: any = { name, email }
-
+    const formData: IFormData = { name, email, birthDay }
     let dataClientToUpdate: IUpdateClientUseCaseModel = {}
-
-    for (const [key, value] of Object.entries(dataForm)) {
-      if (key && value !== client[key]) {
-        Object.assign(dataClientToUpdate, { [key]: value })
+    Object.keys(formData).map((key: string) => {
+      if (
+        formData[key as keyof IFormData] &&
+        formData[key as keyof IFormData] !==
+          client![key as keyof IClientEntitie]
+      ) {
+        Object.assign(dataClientToUpdate, {
+          ...dataClientToUpdate,
+          [key]: formData[key as keyof IFormData],
+        })
       }
-    }
-    updateClient(dataClientToUpdate)
+    })
+
+    dataClientToUpdate && updateClient(dataClientToUpdate)
   }
+
+  // setup messages
+  useEffect(() => {
+    if (getClientError || updateClientError) {
+      setSuccess(null)
+      setError(getClientError || updateClientError)
+    }
+  }, [getClientError, updateClientError])
+  useEffect(() => {
+    if (updateClientSuccess) {
+      setError(null)
+      setSuccess(updateClientSuccess)
+    }
+  }, [updateClientSuccess])
 
   return (
     <section className="profile">
+      <span className="id">Account ID: {client && client.uid}</span>
+
+      {success && <ClientMessage state="SUCCESS" message={success} />}
+      {error && <ClientMessage state="ERROR" message={error} />}
+
       <div className="photo" title="Change image?">
         {photo ? <img src={photo} /> : <img src={ProfileImage} />}
       </div>
@@ -100,8 +134,7 @@ const Profile = (props: IProps) => {
             onChange={(e) => setBirthDay(e.target.value)}
           />
         </label>
-
-        {loadingUpdateClient ? (
+        {updateClietSuccess ? (
           <button className="btn btn-primary disabled">Loading...</button>
         ) : (
           <button className="btn btn-primary">Save</button>
