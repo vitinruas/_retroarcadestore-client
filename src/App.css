@@ -5,3 +5,34 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.msg-app-error {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  background: var(--p-color);
+}
+
+.msg-app-error h1 {
+  font-size: min(2rem, 2vw);
+  color: white;
+  width: 40%;
+  text-align: center;
+}
+
+.msg-app-error .btn {
+  color: white;
+  border: 4px solid white;
+  padding: 0.8rem 2rem;
+  margin: 2rem;
+}
+
+.msg-app-error .btn:hover {
+  cursor: pointer;
+  background: white;
+  color: var(--p-color);
+}

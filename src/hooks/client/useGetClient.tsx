@@ -28,7 +28,6 @@ export const useGetClient = (): IUseGetClient => {
       null,
       accessToken
     )
-    console.log(receivedData)
     // check if in response there is access token
     if (receivedData && statusCode === 200) {
       setClient(receivedData)

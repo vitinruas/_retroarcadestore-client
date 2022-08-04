@@ -16,6 +16,7 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
+  const { dispatch } = useMessageContext()
   const send = async (
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
@@ -40,13 +41,13 @@ export const useFetch = (): IFetch => {
       }
       receivedData = data
     } catch (error) {
-      // dispatch({
-      //   type: 'OPEN',
-      //   component: 'APP',
-      //   messageType: 'ERROR',
-      //   messageBody: 'Your connection to our servers has been lost',
-      //   styleClass: 'msg-app-error',
-      // })
+      dispatch({
+        type: 'OPEN',
+        component: 'APP',
+        messageType: 'ERROR',
+        messageBody: 'Your connection to our servers has been lost =(',
+        styleClass: 'msg-app-error',
+      })
     }
     return { receivedError, receivedData, statusCode }
   }

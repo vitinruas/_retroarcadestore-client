@@ -1,6 +1,6 @@
-import React, { createContext, useReducer, Dispatch, useContext } from 'react'
+import React, { createContext, useReducer, useContext } from 'react'
 
-type ComponentType = 'HOME' | 'ACCOUNT' | 'CART' | null
+type ComponentType = 'APP' | 'HOME' | 'ACCOUNT' | 'CART' | null
 type MessageBodyType = string | null
 type MessageType = 'SUCCESS' | 'ERROR' | 'INFO' | null
 type StyleClassType =
@@ -10,6 +10,8 @@ type StyleClassType =
   | 'msg-admin-error'
   | 'msg-client-info'
   | 'msg-admin-info'
+  | 'msg-app-error'
+  | 'msg-app-info'
   | null
 
 interface IState {

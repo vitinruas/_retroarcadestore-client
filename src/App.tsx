@@ -1,6 +1,6 @@
 import './App.css'
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 // components
 import Layout from './components/Layout'
@@ -12,11 +12,13 @@ import Pages from './pages'
 // contexts
 import { useModalContext } from './contexts/modal-context'
 import { useAuthContext } from './contexts/auth-context'
+import { useMessageContext } from './contexts/message-context'
 
 function App() {
   const { config } = useModalContext()
-  const { authDispatch } = useAuthContext()
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true)
+  const { authDispatch } = useAuthContext()
+  const { state: messageState, dispatch: messageDispatch } = useMessageContext()
 
   // always reload will be dispatched to authenticate
   useEffect(() => {
@@ -25,23 +27,20 @@ function App() {
     })
     setIsAuthenticating(false)
   }, [])
-  const [serverIsDown, setServerIsDown] = useState<boolean>(false)
-  setInterval(async () => {
-    try {
-      // await fetch('http://localhost:5000/api', {
-      //   method: 'HEAD',
-      // })
-      setServerIsDown(false)
-    } catch (error) {
-      setServerIsDown(true)
-    }
-  }, 8000)
-  if (serverIsDown) {
-    return <>You do not connected to internet</>
+  if (isAuthenticating) {
+    return <span className="msg-loading">Loading...</span>
   }
-  return isAuthenticating ? (
-    <span className="msg-loading">Loading...</span>
-  ) : (
+  if (messageState.isOpen && messageState.component === 'APP') {
+    return (
+      <div className={'' + messageState.styleClass}>
+        <h1>{messageState.messageBody}</h1>
+        <a href="./" className="btn">
+          Try Again
+        </a>
+      </div>
+    )
+  }
+  return (
     <>
       {config.isOpen && <Modal />}
       <BrowserRouter>
