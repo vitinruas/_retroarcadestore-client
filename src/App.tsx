@@ -18,7 +18,7 @@ function App() {
   const { config } = useModalContext()
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true)
   const { authDispatch } = useAuthContext()
-  const { state: messageState, dispatch: messageDispatch } = useMessageContext()
+  const { state: messageState } = useMessageContext()
 
   // always reload will be dispatched to authenticate
   useEffect(() => {
@@ -30,20 +30,29 @@ function App() {
   if (isAuthenticating) {
     return <span className="msg-loading">Loading...</span>
   }
+
+  // if there are no connection or the server is down,
+  // will be show this message to the client
   if (messageState.isOpen && messageState.component === 'APP') {
     return (
-      <div className={'' + messageState.styleClass}>
-        <h1>{messageState.messageBody}</h1>
+      <div className={`${messageState.styleClass}`}>
+        <h1 className="title">{messageState.messageBody}</h1>
+        <span className="msg">
+          {
+            'Check your connection or try later because maybe there is a possible maintenance'
+          }
+        </span>
+        <span className="trying-reconnect">Trying to reconnect</span>
         <a href="./" className="btn">
-          Try Again
+          Reload page
         </a>
       </div>
     )
   }
   return (
     <>
-      {config.isOpen && <Modal />}
       <BrowserRouter>
+        {config.isOpen && <Modal />}
         <Layout>{<Pages />}</Layout>
       </BrowserRouter>
     </>

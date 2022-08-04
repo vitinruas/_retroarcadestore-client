@@ -47,7 +47,7 @@ export const useFetch = (): IFetch => {
         type: 'OPEN',
         component: 'APP',
         messageType: 'ERROR',
-        messageBody: 'Your connection to our servers has been lost =(',
+        messageBody: 'Oops! something was wrong =(',
         styleClass: 'msg-app-error',
       })
       // throw message error to client and try reconnect
