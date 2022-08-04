@@ -30,7 +30,6 @@ const Profile = (props: IProps) => {
   const [birthDay, setBirthDay] = useState<string>('')
   const [error, setError] = useState<string | null>('')
   const [success, setSuccess] = useState<string | null>('')
-
   // get client data
   const {
     error: getClientError,
@@ -48,6 +47,7 @@ const Profile = (props: IProps) => {
       setName(client.name)
       setEmail(client.email)
       setBirthDay(client.birthDay || '')
+      console.log(client)
     }
   }, [client])
 

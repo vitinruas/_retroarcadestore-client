@@ -14,7 +14,7 @@ export const useSignUp = () => {
 
   const signUp = async (signUpData: ISignUpModel | null) => {
     setLoading(true)
-    const url = `${api.restAPI}/login`
+    const url = `${api.restAPI}/signup`
 
     const { receivedError, receivedData } = await useFetch(
       url,

@@ -25,7 +25,20 @@ function App() {
     })
     setIsAuthenticating(false)
   }, [])
-
+  const [serverIsDown, setServerIsDown] = useState<boolean>(false)
+  setInterval(async () => {
+    try {
+      // await fetch('http://localhost:5000/api', {
+      //   method: 'HEAD',
+      // })
+      setServerIsDown(false)
+    } catch (error) {
+      setServerIsDown(true)
+    }
+  }, 8000)
+  if (serverIsDown) {
+    return <>You do not connected to internet</>
+  }
   return isAuthenticating ? (
     <span className="msg-loading">Loading...</span>
   ) : (

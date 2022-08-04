@@ -26,7 +26,6 @@ export const useFetch = async (
     }
     receivedData = data
   } catch (error) {
-    console.error('fetch error ->', error)
     receivedError = 'Error! Try again later'
   }
   return { receivedError, receivedData, statusCode }

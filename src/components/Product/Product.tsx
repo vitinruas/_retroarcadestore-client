@@ -1,16 +1,18 @@
 import React from 'react'
-import { usePriceConverterContext } from '../../contexts/price-converter-context'
 import { IProduct } from '../../protocols/entities/product/product-entitie'
 
 // styles
 import './Product.css'
+
+// hooks
+import { usePriceConverter } from '../../hooks/system/conversors/usePriceConverter'
 
 interface IProps {
   product: IProduct
 }
 
 const Product = ({ product }: IProps) => {
-  const { convert } = usePriceConverterContext()
+  const { convert } = usePriceConverter()
   return (
     <div className="product">
       {/* main image */}

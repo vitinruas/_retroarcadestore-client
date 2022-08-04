@@ -12,8 +12,10 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { AiOutlineHeart } from 'react-icons/ai'
 
 // contexts
-import { usePriceConverterContext } from '../../../contexts/price-converter-context'
 import { useModalContext } from '../../../contexts/modal-context'
+
+// hooks
+import { usePriceConverter } from '../../../hooks/system/conversors/usePriceConverter'
 
 // interfaces
 interface IProps {
@@ -22,6 +24,8 @@ interface IProps {
 import { IProduct } from '../../../protocols/entities/product/product-entitie'
 
 const ProductModal = ({ product }: IProps) => {
+  const { convert } = usePriceConverter()
+  // modal
   const { dispatch } = useModalContext()
   const handleCloseProductModal = () => {
     dispatch({
@@ -30,6 +34,7 @@ const ProductModal = ({ product }: IProps) => {
     })
   }
 
+  // image
   const handleZoomInImage = (
     e: React.MouseEvent<HTMLImageElement, MouseEvent>
   ) => {
@@ -43,7 +48,6 @@ const ProductModal = ({ product }: IProps) => {
     e.currentTarget.classList.remove('zoom-in-image')
     e.currentTarget.classList.add('zoom-out-image')
   }
-  const { convert } = usePriceConverterContext()
   return (
     <div className="product-modal">
       <button className="btn close-button" onClick={handleCloseProductModal}>

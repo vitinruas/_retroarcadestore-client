@@ -1,4 +1,8 @@
-export const api = {
+export interface IAPI {
+  restAPI: string
+  postalCodeAPI: string
+}
+export const api: IAPI = {
   restAPI: 'http://localhost:5000/api',
   postalCodeAPI: 'https://api.zippopotam.us',
 }
