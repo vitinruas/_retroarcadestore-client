@@ -12,8 +12,7 @@ import { useGetClient } from '../../../../hooks/client/useGetClient'
 import { useUpdateClient } from '../../../../hooks/client/useUpdateClient'
 import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/update-client-protocol'
 import { IClientEntitie } from '../../../../protocols/entities/account/client-entitie'
-import { BsFillExclamationSquareFill } from 'react-icons/bs'
-import ClientMessage from '../../../../components/Messages/Client/ClientMessage'
+import { useMessageContext } from '../../../../contexts/message-context'
 
 // interface
 interface IProps {}
@@ -28,8 +27,7 @@ const Profile = (props: IProps) => {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [birthDay, setBirthDay] = useState<string>('')
-  const [error, setError] = useState<string | null>('')
-  const [success, setSuccess] = useState<string | null>('')
+  const { dispatch: dispatchMessage } = useMessageContext()
   // get client data
   const {
     error: getClientError,
@@ -81,10 +79,26 @@ const Profile = (props: IProps) => {
 
   // setup messages
   useEffect(() => {
-    setError(getClientError || updateClientError)
+    if (getClientError || updateClientError) {
+      dispatchMessage({
+        type: 'OPEN',
+        component: 'ACCOUNT',
+        messageBody: getClientError || updateClientError,
+        messageType: 'ERROR',
+        styleClass: 'msg-client-error',
+      })
+    }
   }, [getClientError, updateClientError])
   useEffect(() => {
-    setSuccess(updateClientSuccess)
+    if (updateClientSuccess) {
+      dispatchMessage({
+        type: 'OPEN',
+        component: 'ACCOUNT',
+        messageBody: updateClientSuccess,
+        messageType: 'SUCCESS',
+        styleClass: 'msg-client-success',
+      })
+    }
   }, [updateClientSuccess])
 
   return (
@@ -96,10 +110,6 @@ const Profile = (props: IProps) => {
         <>
           {/* account id */}
           <span className="id">Account ID: {client && client.uid}</span>
-
-          {/* message profile */}
-          {success && <ClientMessage state="SUCCESS" message={success} />}
-          {error && <ClientMessage state="ERROR" message={error} />}
 
           {/* photo profile */}
           <div className="photo" title="Change image?">

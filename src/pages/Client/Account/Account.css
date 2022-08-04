@@ -98,8 +98,9 @@
   color: var(--t-color);
 }
 
-.account .msg-client {
+.account .msg {
   position: absolute;
-  left: 4px;
-  top: -53px;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-30.8%);
 }

@@ -1,4 +1,4 @@
-.msg-client > div {
+.msg {
   min-width: 500px;
   text-align: center;
   color: white;
@@ -6,14 +6,14 @@
   border: 4px solid transparent;
 }
 
-.msg-client .success {
+.msg-client-success {
   background: rgb(18, 129, 18);
   padding: 0.5rem 0;
   border-color: white;
   outline-color: rgb(18, 129, 18);
 }
 
-.msg-client .error {
+.msg-client-error {
   background: var(--p-color);
   padding: 0.5rem 0;
   border-color: white;

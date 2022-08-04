@@ -3,6 +3,8 @@ import { AiFillLock } from 'react-icons/ai'
 import { FaMapSigns } from 'react-icons/fa'
 import { RiSettings4Fill, RiUser3Fill } from 'react-icons/ri'
 import { NavLink } from 'react-router-dom'
+import Message from '../../../components/Message/Message'
+import { useMessageContext } from '../../../contexts/message-context'
 
 // styles
 import './Account.css'
@@ -13,8 +15,16 @@ interface IProps {
 }
 
 const Account = ({ children }: IProps) => {
+  const { state: messageState } = useMessageContext()
+  console.log(messageState)
   return (
     <section className="account">
+      {messageState.isOpen && messageState.component === 'ACCOUNT' && (
+        <Message
+          messageBody={messageState.messageBody}
+          styleClass={messageState.styleClass}
+        />
+      )}
       <h1 className="section-title">My Account</h1>
       <section className="container">
         <nav className="account-nav">
