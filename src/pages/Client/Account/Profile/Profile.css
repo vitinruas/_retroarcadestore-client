@@ -28,3 +28,7 @@
   color: gray;
   font-size: min(0.7rem, 0.6vw);
 }
+
+.profile input[type='file'] {
+  display: none;
+}

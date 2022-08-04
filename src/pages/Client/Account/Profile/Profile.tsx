@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 // styles
 import './Profile.css'
@@ -20,13 +20,16 @@ interface IFormData {
   name?: string
   email?: string
   birthDay?: string
+  photo?: File | null
 }
 
 const Profile = (props: IProps) => {
   const [photo, setPhoto] = useState<string>('')
+  const [photoToUpload, setPhotoToUpload] = useState<File | null>(null)
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [birthDay, setBirthDay] = useState<string>('')
+  const inputFile = useRef<any>()
   const { dispatch: dispatchMessage } = useMessageContext()
   // get client data
   const {
@@ -45,7 +48,6 @@ const Profile = (props: IProps) => {
       setName(client.name)
       setEmail(client.email)
       setBirthDay(client.birthDay || '')
-      console.log(client)
     }
   }, [client])
 
@@ -57,9 +59,17 @@ const Profile = (props: IProps) => {
     updateClient,
   } = useUpdateClient()
 
+  // upload image
+  const handlePhotoClick = () => {
+    inputFile.current.click()
+  }
+  const handleUploadPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhotoToUpload(e.target.files && e.target.files[0])
+  }
+
   const handleUpdateClient = (e: any) => {
     e.preventDefault()
-    const formData: IFormData = { name, email, birthDay }
+    const formData: IFormData = { name, email, birthDay, photo: photoToUpload }
     let dataClientToUpdate: IUpdateClientUseCaseModel = {}
     Object.keys(formData).map((key: string) => {
       if (
@@ -112,12 +122,21 @@ const Profile = (props: IProps) => {
           <span className="id">Account ID: {client && client.uid}</span>
 
           {/* photo profile */}
-          <div className="photo" title="Change image?">
+          <div
+            className="photo"
+            title="Change image?"
+            onClick={handlePhotoClick}
+          >
             {photo ? <img src={photo} /> : <img src={ProfileImage} />}
           </div>
 
           {/* form profile */}
           <form className="informations" onSubmit={handleUpdateClient}>
+            <input
+              ref={inputFile}
+              type="file"
+              onChange={(e) => handleUploadPhoto(e)}
+            />
             <label>
               <span>Name:</span>
               <RiUser3Fill className="icons" />
