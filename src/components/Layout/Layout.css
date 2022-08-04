@@ -11,7 +11,7 @@
 
 .main {
   grid-template: main;
-  height: auto;
+  min-height: 80vh;
 }
 
 .footer {

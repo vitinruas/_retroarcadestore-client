@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
   position: relative;
 }
 
@@ -100,7 +99,9 @@
 
 .account .msg {
   position: absolute;
-  top: 44px;
-  left: 50%;
-  transform: translateX(-30.8%);
+  top: -80px;
+}
+
+.account .err {
+  border-color: var(--p-color);
 }
