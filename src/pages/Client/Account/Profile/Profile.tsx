@@ -127,7 +127,16 @@ const Profile = (props: IProps) => {
             title="Change image?"
             onClick={handlePhotoClick}
           >
-            {photo ? <img src={photo} /> : <img src={ProfileImage} />}
+            <img
+              src={
+                photoToUpload
+                  ? URL.createObjectURL(photoToUpload)
+                  : photo
+                  ? `http://localhost:5000/uploads/client/${photo}`
+                  : ProfileImage
+              }
+              alt=""
+            />
           </div>
 
           {/* form profile */}
