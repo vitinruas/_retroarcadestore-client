@@ -29,8 +29,10 @@ const Profile = (props: IProps) => {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [birthDay, setBirthDay] = useState<string>('')
-  const inputFile = useRef<any>()
+  const inputPhotoUploader = useRef<any>()
+  const imgEditPhoto = useRef<any>()
   const { dispatch: dispatchMessage } = useMessageContext()
+
   // get client data
   const {
     error: getClientError,
@@ -59,14 +61,27 @@ const Profile = (props: IProps) => {
     updateClient,
   } = useUpdateClient()
 
-  // upload image
-  const handlePhotoClick = () => {
-    inputFile.current.click()
+  // handle show edit button
+  const handleShowEditPhotoEffect = () => {
+    imgEditPhoto.current.classList.add('show-edit-photo-effect')
   }
+
+  // handle hidden edit button
+  const handleHiddenEditPhotoEffect = () => {
+    imgEditPhoto.current.classList.remove('show-edit-photo-effect')
+  }
+
+  // handle open file manager
+  const handlePhotoClick = () => {
+    inputPhotoUploader.current.click()
+  }
+
+  // handle upload photo
   const handleUploadPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhotoToUpload(e.target.files && e.target.files[0])
   }
 
+  // handle update client
   const handleUpdateClient = (e: any) => {
     e.preventDefault()
     const formData: IFormData = { name, email, birthDay, photo: photoToUpload }
@@ -122,11 +137,17 @@ const Profile = (props: IProps) => {
           <span className="id">Account ID: {client && client.uid}</span>
 
           {/* photo profile */}
-          <div
+          <figure
             className="photo"
-            title="Change image?"
             onClick={handlePhotoClick}
+            onMouseOver={handleShowEditPhotoEffect}
+            onMouseLeave={handleHiddenEditPhotoEffect}
           >
+            <img
+              className="edit"
+              src="/assets/images/edit.png"
+              ref={imgEditPhoto}
+            />
             <img
               src={
                 photoToUpload
@@ -137,12 +158,12 @@ const Profile = (props: IProps) => {
               }
               alt=""
             />
-          </div>
+          </figure>
 
           {/* form profile */}
           <form className="informations" onSubmit={handleUpdateClient}>
             <input
-              ref={inputFile}
+              ref={inputPhotoUploader}
               type="file"
               onChange={(e) => handleUploadPhoto(e)}
             />
