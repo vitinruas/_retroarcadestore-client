@@ -10,13 +10,14 @@ import { ISignUpModel } from '../../../protocols/usecase/account/authentication/
 export const useSignUp = () => {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
+  const { send } = useFetch()
   const { authState, authDispatch } = useAuthContext()
 
   const signUp = async (signUpData: ISignUpModel | null) => {
     setLoading(true)
     const url = `${api.restAPI}/signup`
 
-    const { receivedError, receivedData } = await useFetch(
+    const { receivedError, receivedData, statusCode } = await send(
       url,
       'POST',
       signUpData

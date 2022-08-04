@@ -12,8 +12,10 @@ export interface IUseJson {
 export const useJson = (): IUseJson => {
   const [data, setData] = useState<object | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const { send } = useFetch()
+
   const getJson = async (url: string) => {
-    const { receivedData, receivedError } = await useFetch(url, 'GET')
+    const { receivedError, receivedData, statusCode } = await send(url, 'GET')
 
     if (receivedData) {
       setData(receivedData)

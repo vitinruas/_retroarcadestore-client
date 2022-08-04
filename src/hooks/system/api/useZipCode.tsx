@@ -11,12 +11,11 @@ export interface IUseZipCode {
 export const useZipCode = () => {
   const [address, setAddress] = useState<IAddress>({})
   const [error, setError] = useState<string | null>(null)
+  const { send } = useFetch()
+
   const getAddressZipCode = async (code: string, country: string) => {
     const url = `${api.postalCodeAPI}/${country}/${code}`
-    const { receivedData, receivedError, statusCode } = await useFetch(
-      url,
-      'GET'
-    )
+    const { receivedError, receivedData, statusCode } = await send(url, 'GET')
     if (receivedData && statusCode === 200) {
       setAddress({
         street: '',

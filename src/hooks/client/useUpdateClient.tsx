@@ -17,12 +17,13 @@ export const useUpdateClient = (): IUseUpdateClient => {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [success, setSuccess] = useState<string | null>(null)
+  const { send } = useFetch()
 
   const updateClient = async (dataToUpdate: IUpdateClientUseCaseModel) => {
     setLoading(true)
     const url = `${api.restAPI}/client`
     const accessToken: string | null = localStorage.getItem('accessToken')
-    const { receivedError, receivedData, statusCode } = await useFetch(
+    const { receivedError, receivedData, statusCode } = await send(
       url,
       'PUT',
       dataToUpdate,
