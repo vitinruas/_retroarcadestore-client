@@ -124,13 +124,14 @@ form input:focus {
   padding: 0.5rem 2.5rem;
 }
 
-.btn.btn-primary.disabled {
+.btn.btn-primary[disabled] {
   color: white;
   opacity: 0.9;
   background: rgb(170, 170, 170);
   border-radius: 10px;
   box-shadow: 2px 3px 0px black;
   transition: 0.2s;
+  cursor: no-drop;
 }
 
 .btn.btn-primary:hover {

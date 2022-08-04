@@ -126,7 +126,9 @@ const SignUpModal = ({}: IProps) => {
               I'm already a user
             </a>
             {loading ? (
-              <button className="btn btn-primary disabled">Loading...</button>
+              <button className="btn btn-primary" disabled>
+                Loading...
+              </button>
             ) : (
               <button className="btn btn-primary">SignUp</button>
             )}

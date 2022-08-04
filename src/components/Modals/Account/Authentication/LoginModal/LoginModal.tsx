@@ -99,7 +99,9 @@ const LoginModal = ({}: IProps) => {
             I'm new here
           </a>
           {loading ? (
-            <button className="btn btn-primary disabled">Loading...</button>
+            <button className="btn btn-primary" disabled>
+              Loading...
+            </button>
           ) : (
             <button className="btn btn-primary">Login</button>
           )}

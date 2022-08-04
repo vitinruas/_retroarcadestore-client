@@ -198,7 +198,9 @@ const Profile = (props: IProps) => {
               />
             </label>
             {updateClietSuccess ? (
-              <button className="btn btn-primary disabled">Loading...</button>
+              <button className="btn btn-primary" disabled>
+                Loading...
+              </button>
             ) : (
               <button className="btn btn-primary">Save</button>
             )}
