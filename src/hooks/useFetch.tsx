@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useMessageContext } from '../contexts/message-context'
-import { makeRequest } from '../helpers/request'
+import { api, makeRequest } from '../helpers/request'
 
 interface IFetch {
   send(
@@ -16,7 +16,9 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
-  const { dispatch } = useMessageContext()
+  const { dispatch: dispatchMessage } = useMessageContext()
+  const navigate = useNavigate()
+
   const send = async (
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
@@ -41,13 +43,25 @@ export const useFetch = (): IFetch => {
       }
       receivedData = data
     } catch (error) {
-      dispatch({
+      dispatchMessage({
         type: 'OPEN',
         component: 'APP',
         messageType: 'ERROR',
         messageBody: 'Your connection to our servers has been lost =(',
         styleClass: 'msg-app-error',
       })
+      // throw message error to client and try reconnect
+      const tryConnectInterval = setInterval(async () => {
+        try {
+          await fetch('http://localhost:5000/api').then(() => {
+            dispatchMessage({
+              type: 'CLOSE',
+            })
+            clearInterval(tryConnectInterval)
+            return navigate('./')
+          })
+        } catch (error) {}
+      }, 3000)
     }
     return { receivedError, receivedData, statusCode }
   }

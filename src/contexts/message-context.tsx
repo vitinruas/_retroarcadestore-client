@@ -15,10 +15,10 @@ type StyleClassType =
   | null
 
 interface IState {
-  component: ComponentType
-  messageBody: MessageBodyType
-  messageType: MessageType
-  styleClass: StyleClassType
+  component?: ComponentType
+  messageBody?: MessageBodyType
+  messageType?: MessageType
+  styleClass?: StyleClassType
   isOpen?: boolean
 }
 

@@ -5,8 +5,8 @@ import './Message.css'
 
 // interfaces
 interface IProps {
-  messageBody: string | null
-  styleClass: string | null
+  messageBody: string | null | undefined
+  styleClass: string | null | undefined
 }
 
 const Message = ({ messageBody, styleClass }: IProps) => {
