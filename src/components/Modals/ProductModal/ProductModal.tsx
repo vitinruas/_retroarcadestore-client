@@ -15,7 +15,7 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { useModalContext } from '../../../contexts/modal-context'
 
 // hooks
-import { usePriceConverter } from '../../../hooks/system/conversors/usePriceConverter'
+import { useMoneyConverter } from '../../../hooks/system/conversors/useMoneyConverter'
 
 // interfaces
 interface IProps {
@@ -24,7 +24,7 @@ interface IProps {
 import { IProduct } from '../../../protocols/entities/product/product-entitie'
 
 const ProductModal = ({ product }: IProps) => {
-  const { convert } = usePriceConverter()
+  const { convert } = useMoneyConverter()
   // modal
   const { dispatch } = useModalContext()
   const handleCloseProductModal = () => {

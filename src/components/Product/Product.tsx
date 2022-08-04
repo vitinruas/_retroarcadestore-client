@@ -5,14 +5,14 @@ import { IProduct } from '../../protocols/entities/product/product-entitie'
 import './Product.css'
 
 // hooks
-import { usePriceConverter } from '../../hooks/system/conversors/usePriceConverter'
+import { useMoneyConverter } from '../../hooks/system/conversors/useMoneyConverter'
 
 interface IProps {
   product: IProduct
 }
 
 const Product = ({ product }: IProps) => {
-  const { convert } = usePriceConverter()
+  const { convert } = useMoneyConverter()
   return (
     <div className="product">
       {/* main image */}
