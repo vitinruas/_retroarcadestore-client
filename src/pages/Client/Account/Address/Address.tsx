@@ -141,7 +141,7 @@ const Address = (props: IProps) => {
         component: 'ACCOUNT',
         messageContent: {
           type: 'ERROR',
-          body: getClientError || updateClientError,
+          body: updateClientSuccess,
         },
         style: 'msg-client-success',
       })

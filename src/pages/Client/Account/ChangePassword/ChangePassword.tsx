@@ -72,7 +72,7 @@ const ChangePassword = (props: IProps) => {
         component: 'ACCOUNT',
         messageContent: {
           type: 'ERROR',
-          body: updateClientError,
+          body: updateClientSuccess,
         },
         style: 'msg-client-success',
       })
