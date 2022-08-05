@@ -17,6 +17,7 @@ import { useAuthContext } from '../../../../../contexts/auth-context'
 
 // hooks
 import { useLogin } from '../../../../../hooks/account/authentication/useLogin'
+import { isJSDocNullableType } from 'typescript'
 
 // interfaces
 interface IProps {}
@@ -41,14 +42,9 @@ const LoginModal = ({}: IProps) => {
     })
   }
 
-  const { authState } = useAuthContext()
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    await login({ email, password }).then(() => {
-      if (authState.isLogged) {
-        handleCloseLoginModal()
-      }
-    })
+    await login({ email, password })
   }
 
   const titleRef = useRef<any>()

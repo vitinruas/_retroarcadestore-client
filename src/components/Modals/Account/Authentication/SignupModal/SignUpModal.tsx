@@ -48,14 +48,9 @@ const SignUpModal = ({}: IProps) => {
   }
 
   // handle signup
-  const { authState } = useAuthContext()
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    await signUp({ name, email, password, passwordConfirmation }).then(() => {
-      if (authState.isLogged) {
-        handleCloseSignUpModal()
-      }
-    })
+    await signUp({ name, email, password, passwordConfirmation })
   }
 
   // error style

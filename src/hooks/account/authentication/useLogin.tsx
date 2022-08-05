@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useFetch } from '../../useFetch'
 import { useAuthContext } from '../../../contexts/auth-context'
+import { useModalContext } from '../../../contexts/modal-context'
 // api
 import { api } from '../../../helpers/url'
 // interfaces
@@ -12,6 +13,7 @@ export const useLogin = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const { send } = useFetch()
   const { authState, authDispatch } = useAuthContext()
+  const { dispatch: modalDispatch } = useModalContext()
 
   const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)
@@ -28,6 +30,10 @@ export const useLogin = () => {
       if (!authState.isLogged) {
         authDispatch({
           type: 'AUTHENTICATE',
+        })
+        modalDispatch({
+          type: 'CLOSE',
+          reactComponent: null,
         })
       }
     } else {
