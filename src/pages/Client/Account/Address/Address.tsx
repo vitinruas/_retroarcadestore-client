@@ -17,6 +17,8 @@ import {
   useZipCode,
 } from '../../../../hooks/system/api/useZipCode'
 import { useGetClient } from '../../../../hooks/client/useGetClient'
+import { useUpdateClient } from '../../../../hooks/client/useUpdateClient'
+import { useMessageContext } from '../../../../contexts/message-context'
 
 // interfaces
 interface IProps {}
@@ -30,8 +32,6 @@ interface IFormData {
 }
 import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/update-client-protocol'
 import { IAddress } from '../../../../protocols/entities/account/client-entitie'
-import { useUpdateClient } from '../../../../hooks/client/useUpdateClient'
-import { useMessageContext } from '../../../../contexts/message-context'
 
 const Address = (props: IProps) => {
   const [street, setStreet] = useState<string>('')
@@ -104,21 +104,21 @@ const Address = (props: IProps) => {
       state,
       country,
     }
-    let dataClientToUpdate: IUpdateClientUseCaseModel = {}
+    let addressClientToUpdate: IUpdateClientUseCaseModel = {}
     Object.keys(formData).map((key: string) => {
       if (
         formData[key as keyof IFormData] &&
         formData[key as keyof IFormData] !==
           client!.address![key as keyof IAddress]
       ) {
-        Object.assign(dataClientToUpdate, {
-          ...dataClientToUpdate,
+        Object.assign(addressClientToUpdate, {
+          ...addressClientToUpdate,
           [key]: formData[key as keyof IFormData],
         })
       }
     })
 
-    dataClientToUpdate && updateClient(dataClientToUpdate)
+    addressClientToUpdate && updateClient(addressClientToUpdate)
   }
 
   // setup messages
