@@ -35,13 +35,9 @@ function App() {
   // will be show this message to the client
   if (messageState.isOpen && messageState.component === 'APP') {
     return (
-      <div className={`${messageState.styleClass}`}>
-        <h1 className="title">{messageState.messageBody}</h1>
-        <span className="msg">
-          {
-            'Check your connection or try later because maybe there is a possible maintenance'
-          }
-        </span>
+      <div className={`${messageState.style}`}>
+        <h1 className="title">{messageState.messageContent!.title}</h1>
+        <span className="msg">{messageState.messageContent!.body}</span>
         <span className="trying-reconnect">Trying to reconnect</span>
         <a href="./" className="btn">
           Reload page

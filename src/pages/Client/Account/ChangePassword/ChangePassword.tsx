@@ -57,9 +57,11 @@ const ChangePassword = (props: IProps) => {
       dispatchMessage({
         type: 'OPEN',
         component: 'ACCOUNT',
-        messageBody: updateClientError,
-        messageType: 'ERROR',
-        styleClass: 'msg-client-error',
+        messageContent: {
+          type: 'ERROR',
+          body: updateClientError,
+        },
+        style: 'msg-client-error',
       })
     }
   }, [updateClientError])
@@ -68,9 +70,11 @@ const ChangePassword = (props: IProps) => {
       dispatchMessage({
         type: 'OPEN',
         component: 'ACCOUNT',
-        messageBody: updateClientSuccess,
-        messageType: 'SUCCESS',
-        styleClass: 'msg-client-success',
+        messageContent: {
+          type: 'ERROR',
+          body: updateClientError,
+        },
+        style: 'msg-client-success',
       })
     }
   }, [updateClientSuccess])

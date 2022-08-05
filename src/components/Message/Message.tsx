@@ -5,13 +5,13 @@ import './Message.css'
 
 // interfaces
 interface IProps {
-  messageBody: string | null | undefined
-  styleClass: string | null | undefined
+  message: string | null | undefined
+  style: string | null | undefined
 }
 
-const Message = ({ messageBody, styleClass }: IProps) => {
-  if (messageBody && styleClass) {
-    return <div className={`msg ${styleClass}`}>{messageBody}</div>
+const Message = ({ message, style }: IProps) => {
+  if (message && style) {
+    return <div className={`msg ${style}`}>{message}</div>
   }
   return <></>
 }

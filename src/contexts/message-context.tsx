@@ -1,24 +1,21 @@
 import React, { createContext, useReducer, useContext } from 'react'
-
-type ComponentType = 'APP' | 'HOME' | 'ACCOUNT' | 'CART' | null
-type MessageBodyType = string | null
-type MessageType = 'SUCCESS' | 'ERROR' | 'INFO' | null
-type StyleClassType =
-  | 'msg-client-success'
-  | 'msg-admin-success'
-  | 'msg-client-error'
-  | 'msg-admin-error'
-  | 'msg-client-info'
-  | 'msg-admin-info'
-  | 'msg-app-error'
-  | 'msg-app-info'
-  | null
-
 interface IState {
-  component?: ComponentType
-  messageBody?: MessageBodyType
-  messageType?: MessageType
-  styleClass?: StyleClassType
+  component?: 'APP' | 'HOME' | 'ACCOUNT' | 'CART' | null
+  messageContent?: {
+    type?: 'SUCCESS' | 'ERROR' | 'INFO'
+    title?: string
+    body?: string | null
+  } | null
+  style?:
+    | 'msg-client-success'
+    | 'msg-admin-success'
+    | 'msg-client-error'
+    | 'msg-admin-error'
+    | 'msg-client-info'
+    | 'msg-admin-info'
+    | 'msg-app-error'
+    | 'msg-app-info'
+    | null
   isOpen?: boolean
 }
 
@@ -37,9 +34,8 @@ interface IProps {
 
 const initialState: IState = {
   component: null,
-  messageBody: null,
-  messageType: null,
-  styleClass: null,
+  messageContent: null,
+  style: null,
 }
 
 const defaultContext: IMessageContext = {
@@ -56,17 +52,15 @@ export const MessageProvider = ({ children }: IProps) => {
         return {
           isOpen: true,
           component: action.component,
-          messageBody: action.messageBody,
-          messageType: action.messageType,
-          styleClass: action.styleClass,
+          messageContent: action.messageContent,
+          style: action.style,
         }
       case 'CLOSE':
         return {
           isOpen: false,
           component: null,
-          messageBody: null,
-          messageType: null,
-          styleClass: null,
+          messageContent: null,
+          style: null,
         }
 
       default:

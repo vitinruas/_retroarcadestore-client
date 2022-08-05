@@ -23,13 +23,18 @@ const Account = ({ children }: IProps) => {
 
   return (
     <section className="account">
+      {/* account section message */}
       {messageState.isOpen && messageState.component === 'ACCOUNT' && (
         <Message
-          messageBody={messageState.messageBody}
-          styleClass={messageState.styleClass}
+          message={messageState.messageContent!.body}
+          style={messageState.style}
         />
       )}
+
+      {/* account section title */}
       <h1 className="section-title">My Account</h1>
+
+      {/* account section container */}
       <section className="container">
         <nav className="account-nav">
           <ul>

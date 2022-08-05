@@ -46,9 +46,12 @@ export const useFetch = (): IFetch => {
       dispatchMessage({
         type: 'OPEN',
         component: 'APP',
-        messageType: 'ERROR',
-        messageBody: 'Oops! something was wrong =(',
-        styleClass: 'msg-app-error',
+        messageContent: {
+          title: 'Oops! something was wrong =(',
+          body: 'Check your connection or try later because maybe there is a possible maintenance',
+          type: 'ERROR',
+        },
+        style: 'msg-app-error',
       })
       // throw message error to client and try reconnect
       const tryConnectInterval = setInterval(async () => {

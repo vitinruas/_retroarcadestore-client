@@ -108,9 +108,11 @@ const Profile = (props: IProps) => {
       dispatchMessage({
         type: 'OPEN',
         component: 'ACCOUNT',
-        messageBody: getClientError || updateClientError,
-        messageType: 'ERROR',
-        styleClass: 'msg-client-error',
+        messageContent: {
+          type: 'ERROR',
+          body: getClientError || updateClientError,
+        },
+        style: 'msg-client-error',
       })
     }
   }, [getClientError, updateClientError])
@@ -119,9 +121,11 @@ const Profile = (props: IProps) => {
       dispatchMessage({
         type: 'OPEN',
         component: 'ACCOUNT',
-        messageBody: updateClientSuccess,
-        messageType: 'SUCCESS',
-        styleClass: 'msg-client-success',
+        messageContent: {
+          type: 'ERROR',
+          body: getClientError || updateClientError,
+        },
+        style: 'msg-client-success',
       })
     }
   }, [updateClientSuccess])
