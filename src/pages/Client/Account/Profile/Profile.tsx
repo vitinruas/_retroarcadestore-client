@@ -10,8 +10,6 @@ import { FaBirthdayCake } from 'react-icons/fa'
 // hooks
 import { useGetClient } from '../../../../hooks/client/useGetClient'
 import { useUpdateClient } from '../../../../hooks/client/useUpdateClient'
-import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/update-client-protocol'
-import { IClientEntitie } from '../../../../protocols/entities/account/client-entitie'
 import { useMessageContext } from '../../../../contexts/message-context'
 
 // interface
@@ -22,6 +20,8 @@ interface IFormData {
   birthDay?: string
   photo?: File | null
 }
+import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/update-client-protocol'
+import { IClientEntitie } from '../../../../protocols/entities/account/client-entitie'
 
 const Profile = (props: IProps) => {
   const [photo, setPhoto] = useState<string>('')
@@ -56,7 +56,7 @@ const Profile = (props: IProps) => {
   // update client data
   const {
     error: updateClientError,
-    loading: updateClietSuccess,
+    loading: updateClientLoading,
     success: updateClientSuccess,
     updateClient,
   } = useUpdateClient()
@@ -82,7 +82,7 @@ const Profile = (props: IProps) => {
   }
 
   // handle update client
-  const handleUpdateClient = (e: any) => {
+  const handleUpdateClientData = (e: any) => {
     e.preventDefault()
     const formData: IFormData = { name, email, birthDay, photo: photoToUpload }
     let dataClientToUpdate: IUpdateClientUseCaseModel = {}
@@ -161,7 +161,7 @@ const Profile = (props: IProps) => {
           </figure>
 
           {/* form profile */}
-          <form className="informations" onSubmit={handleUpdateClient}>
+          <form className="informations" onSubmit={handleUpdateClientData}>
             <input
               ref={inputPhotoUploader}
               type="file"
@@ -197,7 +197,7 @@ const Profile = (props: IProps) => {
                 onChange={(e) => setBirthDay(e.target.value)}
               />
             </label>
-            {updateClietSuccess ? (
+            {updateClientLoading ? (
               <button className="btn btn-primary" disabled>
                 Loading...
               </button>

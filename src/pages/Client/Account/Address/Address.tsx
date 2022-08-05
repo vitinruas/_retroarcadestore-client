@@ -152,6 +152,7 @@ const Address = (props: IProps) => {
         <span className="msg-loading">Loading...</span>
       ) : (
         <>
+          {/* address warning message */}
           <div className="warning">
             <BsFillExclamationSquareFill className="icons" />
             <span>
@@ -159,6 +160,7 @@ const Address = (props: IProps) => {
               automatically
             </span>
           </div>
+          {/* address form */}
           <form onSubmit={handleUpdateClientAddress} className="informations">
             <label className="one-line">
               <label>
