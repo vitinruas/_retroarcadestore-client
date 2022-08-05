@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useMessageContext } from '../contexts/message-context'
 import { makeRequest } from '../helpers/request'
+import { useLogout } from './account/authentication/useLogout'
 
 interface IFetch {
   send(
@@ -18,6 +19,7 @@ interface IFetch {
 
 export const useFetch = (): IFetch => {
   const { dispatch: messageDispatch } = useMessageContext()
+  const { logout } = useLogout()
   const navigate = useNavigate()
 
   const send = async (
@@ -39,9 +41,14 @@ export const useFetch = (): IFetch => {
       const data: any = response.status !== 204 ? await response.json() : null
       statusCode = response.status
 
+      if (response.status === 403) {
+        logout()
+      }
+
       if (response.status >= 400) {
         receivedError = data
       }
+
       receivedData = data
     } catch (error) {
       messageDispatch({

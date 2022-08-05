@@ -112,13 +112,13 @@ const Header = ({}: IProps) => {
                   className="login"
                   onClick={() => handleOpenModal(<LoginModal />)}
                 >
-                  Entrar
+                  Login
                 </li>
                 <li
                   className="signup"
                   onClick={() => handleOpenModal(<SignUpModal />)}
                 >
-                  Cadastrar
+                  SignUp
                 </li>
               </div>
             )}

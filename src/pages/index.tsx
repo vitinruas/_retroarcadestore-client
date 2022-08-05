@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { Navigate } from 'react-router-dom'
 // pages
-import Error404 from './errors/404/Error404'
+import Error404 from './Errors/404/Error404'
 import Home from './Home/Home'
 import Account from './Client/Account/Account'
 import Profile from './Client/Account/Profile/Profile'

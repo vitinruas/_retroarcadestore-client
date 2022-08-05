@@ -28,7 +28,7 @@ const Home = (props: IProps) => {
       <Search />
       <section className="products">
         <section className="filter">
-          <h3>FILTRO</h3>
+          <h3>Filter</h3>
         </section>
         <section className="list">
           {products && products.length > 0 ? (
