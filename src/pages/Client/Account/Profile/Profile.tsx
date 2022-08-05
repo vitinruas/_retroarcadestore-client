@@ -130,6 +130,11 @@ const Profile = (props: IProps) => {
     }
   }, [updateClientSuccess])
 
+  // avoid memory leak
+  useEffect(() => {
+    return () => {}
+  }, [])
+
   return (
     <section className="profile">
       {/* section loading */}

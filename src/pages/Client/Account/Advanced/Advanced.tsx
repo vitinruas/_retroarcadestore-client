@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiFillUnlock } from 'react-icons/ai'
 import { BsFillExclamationSquareFill } from 'react-icons/bs'
 
@@ -9,6 +9,10 @@ import './Advanced.css'
 interface IProps {}
 
 const Advanced = (props: IProps) => {
+  // avoid memory leak
+  useEffect(() => {
+    return () => {}
+  }, [])
   return (
     <section className="advanced">
       <h2>Close my account</h2>

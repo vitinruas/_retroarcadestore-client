@@ -1,6 +1,7 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useMessageContext } from '../contexts/message-context'
-import { api, makeRequest } from '../helpers/request'
+import { makeRequest } from '../helpers/request'
 
 interface IFetch {
   send(
@@ -68,5 +69,9 @@ export const useFetch = (): IFetch => {
     }
     return { receivedError, receivedData, statusCode }
   }
+  // avoid memory leak
+  useEffect(() => {
+    return () => {}
+  }, [])
   return { send }
 }

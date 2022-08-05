@@ -78,6 +78,11 @@ const ChangePassword = (props: IProps) => {
       })
     }
   }, [updateClientSuccess])
+
+  // avoid memory leak
+  useEffect(() => {
+    return () => {}
+  }, [])
   return (
     <section className="changePassword">
       <div className="warning">
