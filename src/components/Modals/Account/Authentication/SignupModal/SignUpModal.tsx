@@ -3,7 +3,6 @@ import React, { ReactElement, useEffect, useRef, useState } from 'react'
 // styles
 import './SignUpModal.css'
 import '../Authentication.css'
-import SignUpWallpaper from './assets/images/signup-wallpaper.gif'
 import { IoCloseCircleSharp } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
 import { RiLockPasswordFill, RiUser3Fill } from 'react-icons/ri'
@@ -131,7 +130,7 @@ const SignUpModal = ({}: IProps) => {
         </form>
       </section>
       <div className="background">
-        <img src={SignUpWallpaper} />
+        <img src={'/assets/images/signup-wallpaper.png'} />
       </div>
     </section>
   )

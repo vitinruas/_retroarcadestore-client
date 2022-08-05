@@ -4,8 +4,6 @@ import { useLogout } from '../../../hooks/account/authentication/useLogout'
 
 // styles
 import './Header.css'
-import LogoImage from './assets/images/logo.png'
-import ParadiseImage from './assets/images/paradise.png'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
 
@@ -85,10 +83,14 @@ const Header = ({}: IProps) => {
             <NavLink to={'/'} className="logo">
               <img
                 className="paradise paradise-effect"
-                src={ParadiseImage}
+                src="/assets/images/paradise.png"
                 alt=""
               />
-              <img className="retroarcadestore" src={LogoImage} alt="" />
+              <img
+                className="retroarcadestore"
+                src="/assets/images/logo.png"
+                alt=""
+              />
             </NavLink>
           </div>
           <div className="right">

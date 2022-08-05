@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 
 // styles
 import './Profile.css'
-import ProfileImage from './assets/images/profile.png'
 import { RiUser3Fill } from 'react-icons/ri'
 import { MdEmail } from 'react-icons/md'
 import { FaBirthdayCake } from 'react-icons/fa'
@@ -163,7 +162,7 @@ const Profile = (props: IProps) => {
                   ? URL.createObjectURL(photoToUpload)
                   : photo
                   ? `http://localhost:5000/uploads/client/${photo}`
-                  : ProfileImage
+                  : '/assets/images/profile.png'
               }
               alt=""
             />

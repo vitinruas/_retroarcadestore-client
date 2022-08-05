@@ -9,7 +9,11 @@
   align-items: center;
 }
 
-.close-button {
+.modal .msg {
+  color: var(--s-color);
+}
+
+.modal .close-button {
   position: absolute;
   top: -15px;
   right: -15px;
@@ -17,7 +21,7 @@
   z-index: 1;
 }
 
-.close-button .icons {
+.modal .close-button .icons {
   font-size: 2rem;
   border-radius: 50%;
   background: white;
