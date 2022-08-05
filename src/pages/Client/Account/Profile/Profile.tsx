@@ -31,7 +31,7 @@ const Profile = (props: IProps) => {
   const [birthDay, setBirthDay] = useState<string>('')
   const inputPhotoUploader = useRef<any>()
   const imgEditPhoto = useRef<any>()
-  const { dispatch: dispatchMessage } = useMessageContext()
+  const { dispatch: messageDispatch } = useMessageContext()
 
   // get client data
   const {
@@ -105,7 +105,7 @@ const Profile = (props: IProps) => {
   // setup messages
   useEffect(() => {
     if (getClientError || updateClientError) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {
@@ -118,7 +118,7 @@ const Profile = (props: IProps) => {
   }, [getClientError, updateClientError])
   useEffect(() => {
     if (updateClientSuccess) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {

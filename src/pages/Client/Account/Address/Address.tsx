@@ -54,7 +54,7 @@ const Address = (props: IProps) => {
     success: updateClientSuccess,
     updateClient,
   } = useUpdateClient()
-  const { dispatch: dispatchMessage } = useMessageContext()
+  const { dispatch: messageDispatch } = useMessageContext()
 
   // get countries
   useEffect(() => {
@@ -123,7 +123,7 @@ const Address = (props: IProps) => {
   // setup messages
   useEffect(() => {
     if (getClientError || updateClientError) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {
@@ -136,7 +136,7 @@ const Address = (props: IProps) => {
   }, [getClientError, updateClientError])
   useEffect(() => {
     if (updateClientSuccess) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {

@@ -16,7 +16,7 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
-  const { dispatch: dispatchMessage } = useMessageContext()
+  const { dispatch: messageDispatch } = useMessageContext()
   const navigate = useNavigate()
 
   const send = async (
@@ -43,7 +43,7 @@ export const useFetch = (): IFetch => {
       }
       receivedData = data
     } catch (error) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'APP',
         messageContent: {
@@ -57,7 +57,7 @@ export const useFetch = (): IFetch => {
       const tryConnectInterval = setInterval(async () => {
         try {
           await fetch('http://localhost:5000/api').then(() => {
-            dispatchMessage({
+            messageDispatch({
               type: 'CLOSE',
             })
             clearInterval(tryConnectInterval)

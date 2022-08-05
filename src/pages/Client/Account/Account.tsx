@@ -19,8 +19,16 @@ interface IProps {
 }
 
 const Account = ({ children }: IProps) => {
-  const { state: messageState } = useMessageContext()
-
+  const { state: messageState, dispatch: messageDispatch } = useMessageContext()
+  useEffect(() => {
+    return () => {
+      if (messageState.component === 'ACCOUNT') {
+        messageDispatch({
+          type: 'CLOSE',
+        })
+      }
+    }
+  }, [])
   return (
     <section className="account">
       {/* account section message */}

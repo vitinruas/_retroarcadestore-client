@@ -29,7 +29,7 @@ const ChangePassword = (props: IProps) => {
     success: updateClientSuccess,
     updateClient,
   } = useUpdateClient()
-  const { dispatch: dispatchMessage } = useMessageContext()
+  const { dispatch: messageDispatch } = useMessageContext()
 
   // update client password
   const handleUpdateClientPassword = (e: any) => {
@@ -54,7 +54,7 @@ const ChangePassword = (props: IProps) => {
   // setup messages
   useEffect(() => {
     if (updateClientError) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {
@@ -67,7 +67,7 @@ const ChangePassword = (props: IProps) => {
   }, [updateClientError])
   useEffect(() => {
     if (updateClientSuccess) {
-      dispatchMessage({
+      messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {
