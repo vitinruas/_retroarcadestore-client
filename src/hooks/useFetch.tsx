@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useMessageContext } from '../contexts/message-context'
 import { makeRequest } from '../helpers/request'
-import { useLogout } from './account/authentication/useLogout'
+import { useSystemMessage } from './system/messages/useSystemMessage'
 
 interface IFetch {
   send(
@@ -18,9 +16,8 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
-  const { messageDispatch } = useMessageContext()
-  const { logout } = useLogout()
-  const navigate = useNavigate()
+  const { dispatchThrowConnectionError, dispatchServerError } =
+    useSystemMessage()
 
   const send = async (
     url: string,
@@ -35,45 +32,27 @@ export const useFetch = (): IFetch => {
     let statusCode: number = 0
     let receivedData: any = null
     let receivedError: string | null = null
+
     try {
       const request: RequestInit = makeRequest(method, dataToSend, accessToken)
       const response: Response = await fetch(url, request)
       const data: any = response.status !== 204 ? await response.json() : null
       statusCode = response.status
-
-      if (response.status === 403) {
-        logout()
-      }
-
-      if (response.status >= 400) {
+      if (response.status >= 500) {
+        dispatchServerError()
+      } else if (response.status >= 400) {
         receivedError = data
+      } else {
+        receivedData = data
       }
-
-      receivedData = data
-    } catch (error) {
-      messageDispatch({
-        type: 'OPEN',
-        component: 'APP',
-        messageContent: {
-          title: 'Oops! something was wrong =(',
-          body: 'Check your connection or try later because maybe there is a possible maintenance',
-          type: 'ERROR',
-        },
-        style: 'msg-app-error',
-      })
-      // throw message error to client and try reconnect
-      const tryConnectInterval = setInterval(async () => {
-        try {
-          await fetch('http://localhost:5000/api').then(() => {
-            messageDispatch({
-              type: 'CLOSE',
-            })
-            clearInterval(tryConnectInterval)
-            return navigate('./')
-          })
-        } catch (error) {}
-      }, 5000)
+    } catch (error: any) {
+      if (!navigator.onLine) {
+        dispatchThrowConnectionError()
+      } else {
+        dispatchServerError()
+      }
     }
+
     return { receivedError, receivedData, statusCode }
   }
   // avoid memory leak

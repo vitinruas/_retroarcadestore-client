@@ -103,13 +103,29 @@ const Profile = (props: IProps) => {
 
   // setup messages
   useEffect(() => {
-    if (getClientError || updateClientError) {
+    if (getClientError) {
       messageDispatch({
         type: 'OPEN',
         component: 'ACCOUNT',
         messageContent: {
           type: 'ERROR',
-          body: getClientError || updateClientError,
+          body: getClientError,
+          options: null,
+          title: null,
+        },
+        style: 'msg-client-error',
+      })
+    }
+
+    if (updateClientError) {
+      messageDispatch({
+        type: 'OPEN',
+        component: 'ACCOUNT',
+        messageContent: {
+          type: 'ERROR',
+          body: updateClientError,
+          options: null,
+          title: null,
         },
         style: 'msg-client-error',
       })
@@ -123,6 +139,8 @@ const Profile = (props: IProps) => {
         messageContent: {
           type: 'ERROR',
           body: updateClientSuccess,
+          options: null,
+          title: null,
         },
         style: 'msg-client-success',
       })

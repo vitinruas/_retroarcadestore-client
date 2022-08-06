@@ -26,6 +26,9 @@ const Account = ({ children }: IProps) => {
       if (messageState.isOpen && messageState.component === 'ACCOUNT') {
         messageDispatch({
           type: 'CLOSE',
+          component: null,
+          messageContent: null,
+          style: null,
         })
       }
     }

@@ -60,6 +60,8 @@ const ChangePassword = (props: IProps) => {
         messageContent: {
           type: 'ERROR',
           body: updateClientError,
+          options: null,
+          title: null,
         },
         style: 'msg-client-error',
       })
@@ -73,6 +75,8 @@ const ChangePassword = (props: IProps) => {
         messageContent: {
           type: 'ERROR',
           body: updateClientSuccess,
+          options: null,
+          title: null,
         },
         style: 'msg-client-success',
       })

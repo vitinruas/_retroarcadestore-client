@@ -1,13 +1,20 @@
 import React, { createContext, useReducer, useContext } from 'react'
 
 interface IMessageState {
-  component?: 'APP' | 'HOME' | 'ACCOUNT' | 'CART' | null
-  messageContent?: {
-    type?: 'SUCCESS' | 'ERROR' | 'INFO'
-    title?: string
-    body?: string | null
+  component: 'APP' | 'HOME' | 'ACCOUNT' | 'CART' | null
+  messageContent: {
+    type: 'SUCCESS' | 'ERROR' | 'INFO' | null
+    title: string | null
+    body: string | null
+    options: {
+      appError: {
+        showTryingReconnect: boolean
+        reloadButton: boolean
+        returnButton: boolean
+      }
+    } | null
   } | null
-  style?:
+  style:
     | 'msg-client-success'
     | 'msg-admin-success'
     | 'msg-client-error'
@@ -37,10 +44,21 @@ interface IAction extends IMessageState {
 }
 
 const initialMessageState: IProvidedMessageState = {
-  component: null,
-  messageContent: null,
-  style: null,
   isOpen: false,
+  component: null,
+  messageContent: {
+    body: null,
+    title: null,
+    options: {
+      appError: {
+        reloadButton: false,
+        showTryingReconnect: false,
+        returnButton: false,
+      },
+    },
+    type: null,
+  },
+  style: null,
 }
 
 const initialProvidedContext: IMessageContext = {
