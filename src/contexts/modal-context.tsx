@@ -5,39 +5,38 @@ import React, {
   useReducer,
 } from 'react'
 
-interface IConfig {
+interface IModalState {
   isOpen?: boolean
   reactComponent: ReactElement | null
 }
 
-// it will be returned to components
-interface IModalContext {
-  config: IConfig
-  dispatch: React.Dispatch<IAction>
+export interface IModalContext {
+  modalState: IModalState
+  modalDispatch: React.Dispatch<IAction>
 }
 
-interface IAction extends IConfig {
+interface IAction extends IModalState {
   type: 'OPEN' | 'CLOSE'
 }
 
-const initialConfig: IConfig = {
+const initialModalState: IModalState = {
   isOpen: false,
   reactComponent: null,
 }
 
-const defaultContext: IModalContext = {
-  config: initialConfig,
-  dispatch: () => {},
+const initialProvidedContext: IModalContext = {
+  modalState: initialModalState,
+  modalDispatch: () => {},
 }
 
-export const ModalContext = createContext<IModalContext>(defaultContext)
+export const ModalContext = createContext<IModalContext>(initialProvidedContext)
 
 interface IProps {
   children: ReactElement
 }
 
 export const ModalProvider = ({ children }: IProps) => {
-  const setModalState = (prevState: IConfig, action: IAction) => {
+  const setModalState = (prevState: IModalState, action: IAction) => {
     switch (action.type) {
       case 'OPEN':
         return {
@@ -51,10 +50,13 @@ export const ModalProvider = ({ children }: IProps) => {
         return { ...prevState }
     }
   }
-  const [config, dispatch] = useReducer(setModalState, initialConfig)
+  const [modalState, modalDispatch] = useReducer(
+    setModalState,
+    initialModalState
+  )
 
   return (
-    <ModalContext.Provider value={{ config, dispatch }}>
+    <ModalContext.Provider value={{ modalState, modalDispatch }}>
       {children}
     </ModalContext.Provider>
   )

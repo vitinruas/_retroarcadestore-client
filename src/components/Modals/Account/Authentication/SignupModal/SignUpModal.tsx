@@ -15,7 +15,6 @@ import LoginModal from '../LoginModal/LoginModal'
 
 // hooks
 import { useSignUp } from '../../../../../hooks/account/authentication/useSignUp'
-import { useAuthContext } from '../../../../../contexts/auth-context'
 
 // interfaces
 interface IProps {}
@@ -28,7 +27,7 @@ const SignUpModal = ({}: IProps) => {
 
   const { error, loading, signUp } = useSignUp()
 
-  const { dispatch: modalDispatch } = useModalContext()
+  const { modalDispatch } = useModalContext()
 
   // handle open modal
   const handleOpenModal = (reactComponent: ReactElement) => {

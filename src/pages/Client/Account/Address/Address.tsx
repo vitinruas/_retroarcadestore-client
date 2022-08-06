@@ -54,7 +54,7 @@ const Address = (props: IProps) => {
     success: updateClientSuccess,
     updateClient,
   } = useUpdateClient()
-  const { dispatch: messageDispatch } = useMessageContext()
+  const { messageDispatch } = useMessageContext()
 
   // get countries
   useEffect(() => {

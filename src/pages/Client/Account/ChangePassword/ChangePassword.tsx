@@ -29,7 +29,7 @@ const ChangePassword = (props: IProps) => {
     success: updateClientSuccess,
     updateClient,
   } = useUpdateClient()
-  const { dispatch: messageDispatch } = useMessageContext()
+  const { messageDispatch } = useMessageContext()
 
   // update client password
   const handleUpdateClientPassword = (e: any) => {

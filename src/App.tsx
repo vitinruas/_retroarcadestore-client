@@ -10,17 +10,17 @@ import Modal from './components/Modals/Modal'
 import Pages from './pages'
 
 // contexts
-import { useModalContext } from './contexts/modal-context'
+import { IModalContext, useModalContext } from './contexts/modal-context'
 import { useAuthContext } from './contexts/auth-context'
 import { useMessageContext } from './contexts/message-context'
 
 function App() {
-  const { config } = useModalContext()
+  const { modalState } = useModalContext()
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true)
   const { authDispatch } = useAuthContext()
-  const { state: messageState } = useMessageContext()
+  const { messageState } = useMessageContext()
 
-  // always reload will be dispatched to authenticate
+  // always that reloaded, an action will be dispatched for authentication
   useEffect(() => {
     authDispatch({
       type: 'AUTHENTICATE',
@@ -49,7 +49,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {config.isOpen && <Modal />}
+        {/* modal setup */}
+        {modalState.isOpen && <Modal />}
+        {/* layout */}
         <Layout>{<Pages />}</Layout>
       </BrowserRouter>
     </>

@@ -7,8 +7,8 @@ import './Modal.css'
 interface IProps {}
 
 const Modal = ({}: IProps) => {
-  const { config } = useModalContext()
-  return <section className="modal">{config.reactComponent}</section>
+  const { modalState } = useModalContext()
+  return <section className="modal">{modalState.reactComponent}</section>
 }
 
 export default Modal

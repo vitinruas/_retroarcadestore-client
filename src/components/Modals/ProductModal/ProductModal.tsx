@@ -26,9 +26,9 @@ import { IProduct } from '../../../protocols/entities/product/product-entitie'
 const ProductModal = ({ product }: IProps) => {
   const { convert } = useMoneyConverter()
   // modal
-  const { dispatch } = useModalContext()
+  const { modalDispatch } = useModalContext()
   const handleCloseProductModal = () => {
-    dispatch({
+    modalDispatch({
       type: 'CLOSE',
       reactComponent: null,
     })

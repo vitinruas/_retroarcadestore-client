@@ -19,7 +19,7 @@ interface IProps {
 }
 
 const Account = ({ children }: IProps) => {
-  const { state: messageState, dispatch: messageDispatch } = useMessageContext()
+  const { messageState, messageDispatch } = useMessageContext()
   // avoid memory leak and closes message
   useEffect(() => {
     return () => {

@@ -23,7 +23,7 @@ interface IProps {}
 
 const Header = ({}: IProps) => {
   const { authState } = useAuthContext()
-  const { dispatch: modalDispatch } = useModalContext()
+  const { modalDispatch } = useModalContext()
   const { logout } = useLogout()
 
   const handleOpenModal = (reactComponent: ReactElement) => {

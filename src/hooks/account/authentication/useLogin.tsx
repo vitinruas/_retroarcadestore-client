@@ -13,7 +13,7 @@ export const useLogin = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const { send } = useFetch()
   const { authState, authDispatch } = useAuthContext()
-  const { dispatch: modalDispatch } = useModalContext()
+  const { modalDispatch } = useModalContext()
 
   const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)

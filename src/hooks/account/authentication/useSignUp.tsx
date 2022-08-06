@@ -13,7 +13,7 @@ export const useSignUp = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const { send } = useFetch()
   const { authState, authDispatch } = useAuthContext()
-  const { dispatch: modalDispatch } = useModalContext()
+  const { modalDispatch } = useModalContext()
 
   const signUp = async (signUpData: ISignUpModel | null) => {
     setLoading(true)

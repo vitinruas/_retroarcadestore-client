@@ -30,7 +30,7 @@ const Profile = (props: IProps) => {
   const [birthDay, setBirthDay] = useState<string>('')
   const inputPhotoUploader = useRef<any>()
   const imgEditPhoto = useRef<any>()
-  const { dispatch: messageDispatch } = useMessageContext()
+  const { messageDispatch } = useMessageContext()
 
   // get client data
   const {

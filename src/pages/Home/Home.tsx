@@ -14,9 +14,9 @@ type IProps = {}
 const Home = (props: IProps) => {
   const products = products_list
 
-  const { dispatch } = useModalContext()
+  const { modalDispatch } = useModalContext()
   const handleOpenProductModal = (product: IProduct) => {
-    return dispatch({
+    return modalDispatch({
       type: 'OPEN',
       reactComponent: <ProductModal product={product} />,
     })

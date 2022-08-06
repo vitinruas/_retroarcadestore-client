@@ -18,7 +18,7 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
-  const { dispatch: messageDispatch } = useMessageContext()
+  const { messageDispatch } = useMessageContext()
   const { logout } = useLogout()
   const navigate = useNavigate()
 
@@ -72,7 +72,7 @@ export const useFetch = (): IFetch => {
             return navigate('./')
           })
         } catch (error) {}
-      }, 3000)
+      }, 5000)
     }
     return { receivedError, receivedData, statusCode }
   }

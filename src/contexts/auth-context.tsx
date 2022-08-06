@@ -1,7 +1,6 @@
 import React, {
   ReactElement,
   createContext,
-  useState,
   useContext,
   useReducer,
 } from 'react'
@@ -10,9 +9,13 @@ interface IAuthState {
   isLogged: boolean
 }
 
-interface IAuthContext {
+export interface IAuthContext {
   authState: IAuthState
   authDispatch: React.Dispatch<IAction>
+}
+
+interface IProps {
+  children: ReactElement
 }
 
 interface IAction {
@@ -30,28 +33,21 @@ const defaultContext: IAuthContext = {
 
 export const AuthContext = createContext<IAuthContext>(defaultContext)
 
-interface IProps {
-  children: ReactElement
-}
-
 export const AuthProvider = ({ children }: IProps) => {
-  const [isLogged, setIsLogged] = useState(false)
-  // set auth state
   const setAuthState = (prevState: IAuthState, action: IAction): IAuthState => {
     switch (action.type) {
       case 'AUTHENTICATE':
         const accessToken = localStorage.getItem('accessToken')
-        if (!accessToken) {
+        if (accessToken) {
           return {
             ...prevState,
-            isLogged: false,
+            isLogged: true,
           }
         }
         return {
           ...prevState,
-          isLogged: true,
+          isLogged: false,
         }
-
       case 'LOGOUT':
         return {
           ...prevState,
