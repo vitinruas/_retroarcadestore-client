@@ -46,7 +46,7 @@ function App() {
         })
         return navigate('./')
       }
-    }, 3000)
+    }, 1000)
   }, [])
 
   // always that reloaded, an action will be dispatched for authentication

@@ -16,9 +16,9 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
-  const { dispatchThrowConnectionError, dispatchServerError } =
-    useSystemMessage()
+  const { dispatchServerError } = useSystemMessage()
 
+  let abortController = new AbortController()
   const send = async (
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
@@ -46,18 +46,10 @@ export const useFetch = (): IFetch => {
         receivedData = data
       }
     } catch (error: any) {
-      if (!navigator.onLine) {
-        dispatchThrowConnectionError()
-      } else {
-        dispatchServerError()
-      }
+      dispatchServerError()
     }
-
     return { receivedError, receivedData, statusCode }
   }
-  // avoid memory leak
-  useEffect(() => {
-    return () => {}
-  }, [])
+  abortController.abort()
   return { send }
 }

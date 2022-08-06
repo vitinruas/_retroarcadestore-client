@@ -9,10 +9,6 @@ import './Advanced.css'
 interface IProps {}
 
 const Advanced = (props: IProps) => {
-  // avoid memory leak
-  useEffect(() => {
-    return () => {}
-  }, [])
   return (
     <section className="advanced">
       <h2>Close my account</h2>

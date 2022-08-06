@@ -44,6 +44,7 @@ const Profile = (props: IProps) => {
   }, [])
 
   useEffect(() => {
+    console.log(client)
     if (client) {
       setPhoto(client.photo || '')
       setName(client.name)
@@ -146,11 +147,6 @@ const Profile = (props: IProps) => {
       })
     }
   }, [updateClientSuccess])
-
-  // avoid memory leak
-  useEffect(() => {
-    return () => {}
-  }, [])
 
   return (
     <section className="profile">

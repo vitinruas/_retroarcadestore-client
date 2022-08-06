@@ -164,10 +164,7 @@ const Address = (props: IProps) => {
       })
     }
   }, [updateClientSuccess])
-  // avoid memory leak
-  useEffect(() => {
-    return () => {}
-  }, [])
+
   return (
     <section className="address">
       {/* section loading */}
