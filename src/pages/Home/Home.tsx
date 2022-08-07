@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import ProductModal from '../../components/Modals/ProductModal/ProductModal'
 import Product from '../../components/ProductCard/ProductCard'
 import SearchInput from '../../components/SearchInput/SearchInput'
@@ -44,7 +45,7 @@ const Home = (props: IProps) => {
                 )
             )
           ) : (
-            <div>Não há nenhum Produto!</div>
+            <span>Não há nenhum Produto!</span>
           )}
         </section>
       </section>

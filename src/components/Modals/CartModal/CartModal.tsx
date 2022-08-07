@@ -25,10 +25,13 @@ const CartModal = (props: IProps) => {
   const getTotalQuantityPrice = (quantity: number, price: number): number =>
     price * quantity
 
-  // get total cart product prices
+  // get total cart product prices with its quantities
   const getTotalCartPrice = (): number =>
     products.reduce((prevPrice: number, currentProduct) => {
-      return prevPrice + currentProduct.price
+      return (
+        prevPrice +
+        getTotalQuantityPrice(currentProduct.quantity, currentProduct.price)
+      )
     }, 0)
 
   // handle close modal
