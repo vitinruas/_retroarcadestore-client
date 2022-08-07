@@ -24,9 +24,12 @@ interface IProps {
 import { IProduct } from '../../../protocols/entities/product/product-entitie'
 
 const ProductModal = ({ product }: IProps) => {
+  // hooks
   const { convert } = useMoneyConverter()
-  // modal
+  // dispatch modal
   const { modalDispatch } = useModalContext()
+
+  // handle close modal
   const handleCloseProductModal = () => {
     modalDispatch({
       type: 'CLOSE',
@@ -34,7 +37,7 @@ const ProductModal = ({ product }: IProps) => {
     })
   }
 
-  // image
+  // handle zoom image
   const handleZoomInImage = (
     e: React.MouseEvent<HTMLImageElement, MouseEvent>
   ) => {
@@ -53,9 +56,9 @@ const ProductModal = ({ product }: IProps) => {
       <button className="btn close-button" onClick={handleCloseProductModal}>
         <IoCloseCircleSharp className="icons" />
       </button>
-      {/* images */}
+      {/* product images */}
       <div className="images">
-        {/* main image */}
+        {/* product main image */}
         <figure className="mainImage">
           {product.mainImage ? (
             <img
@@ -67,7 +70,7 @@ const ProductModal = ({ product }: IProps) => {
             <div className="no-image"></div>
           )}
         </figure>
-        {/* preview images */}
+        {/* product preview images */}
         <div className="previewImages">
           {product.previewImages.length > 0 ? (
             product.previewImages.map((image) => <img src={image} />)
@@ -81,24 +84,24 @@ const ProductModal = ({ product }: IProps) => {
         </div>
       </div>
 
-      {/* informations */}
+      {/* product informations */}
       <div className="informations">
-        {/* name */}
+        {/* product name */}
         <h1 className="name">{product.name}</h1>
-        {/* category */}
+        {/* product category */}
         <span className="category">{product.category}</span>
-        {/* avaliation */}
+        {/* product avaliation */}
         <div className="avaliation">
           <div className="stars"></div>
           <span>
             {product.avaliations.length} pessoas avaliaram {product.name}
           </span>
         </div>
-        {/* description */}
+        {/* product description */}
         <span className="description">{product.description}</span>
         {/* container for price, discount, favorite and quantity */}
         <div className="container">
-          {/* price */}
+          {/* product price */}
           {product.discount ? (
             <div className="price-with-discount">
               <span className="price">{convert(product.price, 'R$')}</span>
@@ -107,12 +110,12 @@ const ProductModal = ({ product }: IProps) => {
           ) : (
             <span className="price">{convert(product.price, 'R$')}</span>
           )}
-          {/* favorite */}
+          {/* product favorite */}
           <button className="favorite btn">
             <AiOutlineHeart className="icons" />
           </button>
         </div>
-        {/* quantity */}
+        {/* product quantity */}
         <div className="quantity">
           {product.category !== 'games' && (
             <>
@@ -122,20 +125,20 @@ const ProductModal = ({ product }: IProps) => {
             </>
           )}
         </div>
-        {/* buttons */}
+        {/* product buttons */}
         <div className="buttons">
-          {/* cart */}
+          {/* product cart */}
           <button className="cart btn btn-secondary">
             <FaShoppingCart className="icons" />
             <span>Cart</span>
           </button>
-          {/* buy */}
+          {/* product buy */}
           <button className="buy btn btn-primary">
             <AiFillDollarCircle className="icons" />
             <span>Buy Now</span>
           </button>
         </div>
-        {/* id */}
+        {/* product id */}
         <span className="id">ID: {product.id}</span>
       </div>
     </div>

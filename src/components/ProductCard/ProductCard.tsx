@@ -15,15 +15,15 @@ const Product = ({ product }: IProps) => {
   const { convert } = useMoneyConverter()
   return (
     <div className="product-card">
-      {/* main image */}
+      {/* product main image */}
       <figure className="mainImage">
         <img src={product.mainImage} />
       </figure>
-      {/* name */}
+      {/* product name */}
       <div className="name">
         <h2>{product.name}</h2>
       </div>
-      {/* price */}
+      {/* product price */}
       <div className="price">
         <strong>{convert(product.price, 'R$')}</strong>
       </div>

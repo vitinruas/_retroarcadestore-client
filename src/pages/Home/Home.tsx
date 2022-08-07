@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductModal from '../../components/Modals/ProductModal/ProductModal'
 import Product from '../../components/ProductCard/ProductCard'
-import Search from '../../components/Search/Search'
+import SearchInput from '../../components/SearchInput/SearchInput'
 import { useModalContext } from '../../contexts/modal-context'
 import products_list from '../../mocks/products'
 import { IProduct } from '../../protocols/entities/product/product-entitie'
@@ -25,7 +25,7 @@ const Home = (props: IProps) => {
   return (
     <section className="home">
       <section className="ad"></section>
-      <Search />
+      <SearchInput />
       <section className="products">
         <section className="filter">
           <h3>Filter</h3>

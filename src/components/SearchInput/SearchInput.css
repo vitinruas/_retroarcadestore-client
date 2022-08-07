@@ -1,37 +1,38 @@
-.search {
+.search-input {
   width: 60%;
   margin: 1rem 0;
 }
 
-.search label {
+.search-input label {
   width: 100%;
   position: relative;
 }
 
-.search button {
+.search-input button {
   width: 18px;
   height: 18px;
   position: absolute;
-  left: 2px;
-  top: -38px;
+  left: 0.8%;
+  top: -69%;
   border: none;
   background: none;
 }
 
-.search button .icons {
+.search-input button .icons {
   font-size: 1rem;
   cursor: pointer;
   position: absolute;
   color: var(--s-color);
 }
 
-.search .icons:hover {
+.search-input .icons:hover {
   color: var(--p-color);
 }
 
-.search input {
+.search-input input {
   font: normal 0.8rem 'Retron2000';
   text-transform: uppercase;
+  padding-left: 2.5rem;
 }
 
 /* clears the 'X' from Internet Explorer */

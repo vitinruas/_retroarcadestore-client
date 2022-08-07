@@ -1,16 +1,16 @@
 import React from 'react'
 
 // styles
-import './Search.css'
+import './SearchInput.css'
 import { FaSearch } from 'react-icons/fa'
 
 interface IProps {}
 
-const Search = (props: IProps) => {
+const SearchInput = (props: IProps) => {
   return (
-    <form className="search">
+    <form className="search-input">
       <label>
-        <button className="search">
+        <button>
           <FaSearch className="icons" />
         </button>
         <input type="search" placeholder="Search here..." autoFocus />
@@ -19,4 +19,4 @@ const Search = (props: IProps) => {
   )
 }
 
-export default Search
+export default SearchInput

@@ -1,0 +1,25 @@
+.search-modal {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.search-modal > .close-button {
+  position: absolute;
+  margin-top: 50px;
+  left: 50px;
+}
+
+.search-modal h1 {
+  color: var(--s-color);
+  font-size: 1.8rem;
+}
+
+.search-modal .search-input {
+  width: 800px;
+}

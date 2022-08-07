@@ -1,11 +1,15 @@
 import React, { ReactElement, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useLogout } from '../../../hooks/account/authentication/useLogout'
 
 // styles
 import './Header.css'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
+import { RiUser3Fill } from 'react-icons/ri'
+import { IoBagHandleSharp } from 'react-icons/io5'
+
+// hooks
+import { useLogout } from '../../../hooks/account/authentication/useLogout'
 
 // contexts
 import { useModalContext } from '../../../contexts/modal-context'
@@ -14,10 +18,8 @@ import { useAuthContext } from '../../../contexts/auth-context'
 // components
 import SignUpModal from '../../Modals/Account/Authentication/SignupModal/SignUpModal'
 import LoginModal from '../../Modals/Account/Authentication/LoginModal/LoginModal'
-import { RiUser3Fill } from 'react-icons/ri'
-import { BsFillBagFill } from 'react-icons/bs'
-import { IoBagHandleSharp } from 'react-icons/io5'
 import CartModal from '../../Modals/CartModal/CartModal'
+import SearchModal from '../../Modals/SearchModal/SearchModal'
 
 // interfaces
 interface IProps {}
@@ -77,7 +79,10 @@ const Header = ({}: IProps) => {
         <ul>
           <div className="left">
             <li className="search">
-              <FaSearch className="icons" />
+              <FaSearch
+                className="icons"
+                onClick={() => handleOpenModal(<SearchModal />)}
+              />
             </li>
           </div>
           <div className="center">
