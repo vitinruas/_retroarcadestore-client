@@ -1,4 +1,4 @@
-.product {
+.product-card {
   width: 200px;
   height: 300px;
   border: 3px solid var(--s-color);
@@ -7,53 +7,53 @@
   margin: 1rem 1rem;
 }
 
-.product:hover {
+.product-card:hover {
   outline-color: var(--p-color);
   border-color: var(--p-color);
   cursor: pointer;
 }
 
-.product .mainImage {
+.product-card .mainImage {
   height: 75%;
   width: 100%;
   background: var(--s-color);
 }
 
-.product .mainImage img {
+.product-card .mainImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.product .name {
+.product-card .name {
   height: 10%;
   background: var(--p-color);
 }
 
-.product .name > h2 {
+.product-card .name > h2 {
   text-align: center;
   font-size: min(0.8rem, 1vw);
   background: var(--p-color);
   color: white;
 }
-.product .price {
+.product-card .price {
   height: 15%;
 }
 
-.product .price > strong {
+.product-card .price > strong {
   font-size: min(1.5rem, 2vw);
 }
 
-.product .name,
-.product .price {
+.product-card .name,
+.product-card .price {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.product .price > strong,
-.product .name > h2 {
+.product-card .price > strong,
+.product-card .name > h2 {
   font-weight: normal;
 }
 

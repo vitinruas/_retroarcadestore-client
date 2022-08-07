@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductModal from '../../components/Modals/ProductModal/ProductModal'
-import Product from '../../components/Product/Product'
+import Product from '../../components/ProductCard/ProductCard'
 import Search from '../../components/Search/Search'
 import { useModalContext } from '../../contexts/modal-context'
 import products_list from '../../mocks/products'

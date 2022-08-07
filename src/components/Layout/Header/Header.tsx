@@ -17,6 +17,7 @@ import LoginModal from '../../Modals/Account/Authentication/LoginModal/LoginModa
 import { RiUser3Fill } from 'react-icons/ri'
 import { BsFillBagFill } from 'react-icons/bs'
 import { IoBagHandleSharp } from 'react-icons/io5'
+import CartModal from '../../Modals/CartModal/CartModal'
 
 // interfaces
 interface IProps {}
@@ -127,7 +128,10 @@ const Header = ({}: IProps) => {
               <AiFillHeart className="icons" />
             </li>
             <li className="cart">
-              <IoBagHandleSharp className="icons" />
+              <IoBagHandleSharp
+                className="icons"
+                onClick={() => handleOpenModal(<CartModal />)}
+              />
             </li>
           </div>
         </ul>

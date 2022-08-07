@@ -14,6 +14,8 @@
 }
 
 .modal .close-button {
+  width: 32px;
+  height: 32px;
   position: absolute;
   top: -15px;
   right: -15px;

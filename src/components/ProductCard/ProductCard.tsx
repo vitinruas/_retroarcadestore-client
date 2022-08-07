@@ -2,7 +2,7 @@ import React from 'react'
 import { IProduct } from '../../protocols/entities/product/product-entitie'
 
 // styles
-import './Product.css'
+import './ProductCard.css'
 
 // hooks
 import { useMoneyConverter } from '../../hooks/system/conversors/useMoneyConverter'
@@ -14,7 +14,7 @@ interface IProps {
 const Product = ({ product }: IProps) => {
   const { convert } = useMoneyConverter()
   return (
-    <div className="product">
+    <div className="product-card">
       {/* main image */}
       <figure className="mainImage">
         <img src={product.mainImage} />
