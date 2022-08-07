@@ -54,14 +54,22 @@ const LoginModal = ({}: IProps) => {
 
   return (
     <section className="login-modal">
+      {/* login close button */}
       <button className="btn close-button" onClick={handleCloseLoginModal}>
         <IoCloseCircleSharp className="icons" />
       </button>
+      {/* login title */}
       <h1 className="title" ref={titleRef}>
-        {error || 'Login'}
+        {error || (
+          <>
+            <span className="left-arrow-effect">{'>'}</span> Login{' '}
+            <span className="right-arrow-effect">{'<'}</span>
+          </>
+        )}
       </h1>
+      {/* login form  */}
       <form onSubmit={(e) => handleLogin(e)} className="form">
-        <span className="msg">Welcome to back! =)</span>
+        <span className="msg">Welcome to back!</span>
         {/* E-mail */}
         <label className="email">
           <span>E-mail:</span>

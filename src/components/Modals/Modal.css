@@ -28,3 +28,33 @@
   border-radius: 50%;
   background: white;
 }
+
+.modal .left-arrow-effect,
+.modal .right-arrow-effect {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.modal .left-arrow-effect {
+  animation-name: left-arrow-effect;
+}
+
+@keyframes left-arrow-effect {
+  from {
+    position: relative;
+    left: -5px;
+  }
+}
+
+.modal .right-arrow-effect {
+  animation-name: right-arrow-effect;
+}
+
+@keyframes right-arrow-effect {
+  from {
+    position: relative;
+    left: 5px;
+  }
+}

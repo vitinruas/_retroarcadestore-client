@@ -47,7 +47,12 @@ const CartModal = (props: IProps) => {
       {/* cart */}
       <div className="cart">
         {/* cart title */}
-        <h1 className="title">{'> My Cart <'}</h1>
+        <h1 className="title">
+          <>
+            <span className="left-arrow-effect">{'>'}</span> My Cart{' '}
+            <span className="right-arrow-effect">{'<'}</span>
+          </>
+        </h1>
         {/* cart table */}
         <table>
           <thead>

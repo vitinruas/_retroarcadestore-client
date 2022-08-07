@@ -61,11 +61,18 @@ const SignUpModal = ({}: IProps) => {
 
   return (
     <section className="signup-modal">
+      {/*signup close button */}
       <button className="btn close-button" onClick={handleCloseSignUpModal}>
         <IoCloseCircleSharp className="icons" />
       </button>
+      {/* signup title */}
       <h1 className="title" ref={titleRef}>
-        {error || 'SignUp'}
+        {error || (
+          <>
+            <span className="left-arrow-effect">{'>'}</span> SignUp{' '}
+            <span className="right-arrow-effect">{'<'}</span>
+          </>
+        )}
       </h1>
       <section className="form">
         <form onSubmit={handleSignUp}>
@@ -129,7 +136,7 @@ const SignUpModal = ({}: IProps) => {
         </form>
       </section>
       <div className="background">
-        <img src={'/assets/images/signup-wallpaper.png'} />
+        <img src={'/assets/images/signup-wallpaper.gif'} />
       </div>
     </section>
   )
