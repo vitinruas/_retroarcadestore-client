@@ -34,12 +34,15 @@ import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/
 import { IAddress } from '../../../../protocols/entities/account/client-entitie'
 
 const Address = (props: IProps) => {
+  // states
   const [street, setStreet] = useState<string>('')
   const [zipCode, setZipCode] = useState<string>('')
   const [district, setDistrict] = useState<string>('')
   const [city, setCity] = useState<string>('')
   const [state, setState] = useState<string>('')
   const [country, setCountry] = useState<string>('')
+
+  // hooks
   const { address, getAddressZipCode }: IUseZipCode = useZipCode()
   const { data: countries, error: getJsonError, getJson }: IUseJson = useJson()
   const {
@@ -48,6 +51,8 @@ const Address = (props: IProps) => {
     client,
     getClient,
   } = useGetClient()
+
+  // contexts
   const {
     error: updateClientError,
     loading: updateClientLoading,
@@ -61,15 +66,14 @@ const Address = (props: IProps) => {
     getJson(json.countriesJSON)
   }, [])
 
-  // get zipcode
+  // get address with the provided zipcode
   useEffect(() => {
     if (country && zipCode.length >= 5 && zipCode.length <= 12) {
       getAddressZipCode(zipCode, country)
     }
   }, [zipCode, country])
 
-  // get address zip code promise
-  // it does not needs the fields zipCode, Country because it's already inserted
+  // no need to fill in ZipCode and Country, because they already inserted
   useEffect(() => {
     setStreet(address.street || street)
     setState(address.state || state)

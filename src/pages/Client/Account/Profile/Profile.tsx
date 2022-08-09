@@ -23,13 +23,18 @@ import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/
 import { IClientEntitie } from '../../../../protocols/entities/account/client-entitie'
 
 const Profile = (props: IProps) => {
+  // states
   const [photo, setPhoto] = useState<string>('')
   const [photoToUpload, setPhotoToUpload] = useState<File | null>(null)
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [birthDay, setBirthDay] = useState<string>('')
-  const inputPhotoUploader = useRef<any>()
-  const imgEditPhoto = useRef<any>()
+
+  // refs
+  const photoUploaderINPUT = useRef<any>()
+  const editPhotoIMG = useRef<any>()
+
+  // contexts
   const { messageDispatch } = useMessageContext()
 
   // get client data
@@ -44,7 +49,6 @@ const Profile = (props: IProps) => {
   }, [])
 
   useEffect(() => {
-    console.log(client)
     if (client) {
       setPhoto(client.photo || '')
       setName(client.name)
@@ -63,17 +67,17 @@ const Profile = (props: IProps) => {
 
   // handle show edit button
   const handleShowEditPhotoEffect = () => {
-    imgEditPhoto.current.classList.add('show-edit-photo-effect')
+    editPhotoIMG.current.classList.add('show-edit-photo-effect')
   }
 
   // handle hidden edit button
   const handleHiddenEditPhotoEffect = () => {
-    imgEditPhoto.current.classList.remove('show-edit-photo-effect')
+    editPhotoIMG.current.classList.remove('show-edit-photo-effect')
   }
 
   // handle open file manager
   const handlePhotoClick = () => {
-    inputPhotoUploader.current.click()
+    photoUploaderINPUT.current.click()
   }
 
   // handle upload photo
@@ -98,7 +102,6 @@ const Profile = (props: IProps) => {
         })
       }
     })
-
     dataClientToUpdate && updateClient(dataClientToUpdate)
   }
 
@@ -168,7 +171,7 @@ const Profile = (props: IProps) => {
             <img
               className="edit"
               src="/assets/images/edit.png"
-              ref={imgEditPhoto}
+              ref={editPhotoIMG}
             />
             <img
               src={
@@ -185,7 +188,7 @@ const Profile = (props: IProps) => {
           {/* form profile */}
           <form className="informations" onSubmit={handleUpdateClientData}>
             <input
-              ref={inputPhotoUploader}
+              ref={photoUploaderINPUT}
               type="file"
               onChange={(e) => handleUploadPhoto(e)}
             />

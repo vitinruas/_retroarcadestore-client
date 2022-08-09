@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
-import { AiFillUnlock } from 'react-icons/ai'
-import { BsFillExclamationSquareFill } from 'react-icons/bs'
+import React from 'react'
 
 // styles
 import './Advanced.css'
+import { BsFillExclamationSquareFill } from 'react-icons/bs'
 
 // interfaces
 interface IProps {}

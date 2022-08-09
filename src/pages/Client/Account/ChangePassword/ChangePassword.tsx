@@ -19,10 +19,13 @@ interface IFormData {
 import { IUpdateClientUseCaseModel } from '../../../../protocols/usecase/client/update-client-protocol'
 
 const ChangePassword = (props: IProps) => {
+  // states
   const [password, setPassword] = useState<string>('')
   const [newPassword, setNewPassword] = useState<string>('')
   const [newPasswordConfirmation, setNewPasswordConfirmation] =
     useState<string>('')
+
+  // contexts
   const {
     error: updateClientError,
     loading: updateClientLoading,
