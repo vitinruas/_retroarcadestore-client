@@ -1,16 +1,22 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import ProductModal from '../../components/Modals/ProductModal/ProductModal'
-import Product from '../../components/ProductCard/ProductCard'
-import SearchInput from '../../components/SearchInput/SearchInput'
-import { useModalContext } from '../../contexts/modal-context'
-import products_list from '../../mocks/products'
-import { IProduct } from '../../protocols/entities/product/product-entitie'
 
 // styles
 import './Home.css'
 
-type IProps = {}
+// contexts
+import { useModalContext } from '../../contexts/modal-context'
+
+// pages
+import ProductModal from '../../components/Modals/ProductModal/ProductModal'
+import Product from '../../components/ProductCard/ProductCard'
+import SearchInput from '../../components/SearchInput/SearchInput'
+
+// mocks
+import products_list from '../../mocks/products'
+
+// interfaces
+interface IProps {}
+import { IProduct } from '../../protocols/entities/product/product-entitie'
 
 const Home = (props: IProps) => {
   const products = products_list
@@ -25,12 +31,16 @@ const Home = (props: IProps) => {
 
   return (
     <section className="home">
+      {/* announcements */}
       <section className="ad"></section>
+      {/* search */}
       <SearchInput />
       <section className="products">
+        {/* filters */}
         <section className="filter">
           <h3>Filter</h3>
         </section>
+        {/* list */}
         <section className="list">
           {products && products.length > 0 ? (
             products.map(
