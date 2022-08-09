@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @font-face {
   font-family: 'Retron2000';
-  src: url('/public/assets/fonts/Retron2000.ttf');
+  src: url('/assets/fonts/Retron2000.ttf');
 }
 
 * {

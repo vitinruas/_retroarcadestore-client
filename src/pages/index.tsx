@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-
 import { Navigate } from 'react-router-dom'
+
 // pages
 import Error404 from './Errors/404/Error404'
 import Home from './Home/Home'
