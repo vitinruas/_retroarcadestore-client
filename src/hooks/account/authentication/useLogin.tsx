@@ -9,6 +9,7 @@ import { api } from '../../../helpers/url'
 
 // interfaces
 import { IAuthenticationModel } from '../../../protocols/usecase/account/authentication/authentication-protocol'
+import { useNavigate } from 'react-router-dom'
 
 export const useLogin = () => {
   // states

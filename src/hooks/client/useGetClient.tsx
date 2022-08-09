@@ -38,7 +38,7 @@ export const useGetClient = (): IUseGetClient => {
     if (receivedData && statusCode === 200) {
       setClient(receivedData)
     } else if (statusCode === 403) {
-      logout()
+      logout(true)
     } else {
       setError(receivedError)
     }
