@@ -1,8 +1,10 @@
 import { IAvaliation } from './avaliation-entitie'
 
+type ICategory = 'games' | 'clothes' | 'accessories'
+
 export interface IProduct {
   id: string
-  category: 'games' | 'clothes' | 'accessories'
+  category: ICategory
   name: string
   mainImage: string
   previewImages: string[]

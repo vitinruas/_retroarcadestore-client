@@ -1,4 +1,4 @@
-import { StarsType } from './stars-entitie'
+export type StarsType = 1 | 2 | 3 | 4 | 5
 
 export interface IAvaliation {
   id: string
