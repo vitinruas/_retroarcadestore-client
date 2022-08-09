@@ -1,9 +1,12 @@
 // hooks
 import { useState } from 'react'
 import { useFetch } from '../useFetch'
+
 // api
 import { api } from '../../helpers/url'
 import { IClientEntitie } from '../../protocols/entities/account/client-entitie'
+import { useLogout } from '../account/authentication/useLogout'
+
 // interfaces
 interface IUseGetClient {
   error: string | null
@@ -13,10 +16,13 @@ interface IUseGetClient {
 }
 
 export const useGetClient = (): IUseGetClient => {
+  // states
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
-  const { send } = useFetch()
   const [client, setClient] = useState<IClientEntitie | null>(null)
+  // hooks
+  const { send } = useFetch()
+  const { logout } = useLogout()
 
   const getClient = async () => {
     setLoading(true)
@@ -31,6 +37,8 @@ export const useGetClient = (): IUseGetClient => {
     // check if in response there is access token
     if (receivedData && statusCode === 200) {
       setClient(receivedData)
+    } else if (statusCode === 403) {
+      logout()
     } else {
       setError(receivedError)
     }

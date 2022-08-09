@@ -1,10 +1,12 @@
 // hooks
 import { useState } from 'react'
 import { useFetch } from '../useFetch'
+import { useLogout } from '../account/authentication/useLogout'
+
 // api
 import { api } from '../../helpers/url'
+
 // interfaces
-import { IClientEntitie } from '../../protocols/entities/account/client-entitie'
 import { IUpdateClientUseCaseModel } from '../../protocols/usecase/client/update-client-protocol'
 interface IUseUpdateClient {
   loading: boolean
@@ -14,10 +16,14 @@ interface IUseUpdateClient {
 }
 
 export const useUpdateClient = (): IUseUpdateClient => {
+  // states
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [success, setSuccess] = useState<string | null>(null)
+
+  //hooks
   const { send } = useFetch()
+  const { logout } = useLogout()
 
   const updateClient = async (dataToUpdate: IUpdateClientUseCaseModel) => {
     setLoading(true)
@@ -33,6 +39,8 @@ export const useUpdateClient = (): IUseUpdateClient => {
     if (statusCode === 204) {
       setSuccess('Your data have been successfully updated')
       setError(null)
+    } else if (statusCode === 403) {
+      logout()
     } else {
       setError(receivedError)
       setSuccess(null)
