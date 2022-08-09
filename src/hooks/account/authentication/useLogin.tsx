@@ -4,16 +4,23 @@ import { useFetch } from '../../useFetch'
 import { useAuthContext } from '../../../contexts/auth-context'
 import { useModalContext } from '../../../contexts/modal-context'
 // api
+
 import { api } from '../../../helpers/url'
+
 // interfaces
 import { IAuthenticationModel } from '../../../protocols/usecase/account/authentication/authentication-protocol'
 
 export const useLogin = () => {
+  // states
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
-  const { send } = useFetch()
   const { authState, authDispatch } = useAuthContext()
+
+  // contexts
   const { modalDispatch } = useModalContext()
+
+  // hooks
+  const { send } = useFetch()
 
   const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)

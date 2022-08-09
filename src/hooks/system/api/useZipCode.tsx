@@ -1,16 +1,24 @@
+// hooks
 import { useState } from 'react'
-import { api } from '../../../helpers/url'
 import { useFetch } from '../../useFetch'
-import { IAddress } from '../../../protocols/entities/account/client-entitie'
 
+// api
+import { api } from '../../../helpers/url'
+
+// interfaces
+import { IAddress } from '../../../protocols/entities/account/client-entitie'
 export interface IUseZipCode {
+  error: string | null
   getAddressZipCode: (code: string, country: string) => {}
   address: IAddress
 }
 
 export const useZipCode = () => {
+  // states
   const [address, setAddress] = useState<IAddress>({})
   const [error, setError] = useState<string | null>(null)
+
+  // hooks
   const { send } = useFetch()
 
   const getAddressZipCode = async (code: string, country: string) => {
@@ -29,5 +37,5 @@ export const useZipCode = () => {
       setError(receivedError)
     }
   }
-  return { address, getAddressZipCode }
+  return { error, address, getAddressZipCode }
 }

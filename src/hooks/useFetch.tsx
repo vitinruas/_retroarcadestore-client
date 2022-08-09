@@ -1,7 +1,10 @@
-import { useEffect } from 'react'
+// helpers
 import { makeRequest } from '../helpers/request'
+
+// hooks
 import { useSystemMessage } from './system/messages/useSystemMessage'
 
+// interfaces
 interface IFetch {
   send(
     url: string,
@@ -16,6 +19,7 @@ interface IFetch {
 }
 
 export const useFetch = (): IFetch => {
+  // hooks
   const { dispatchServerError } = useSystemMessage()
 
   let abortController = new AbortController()

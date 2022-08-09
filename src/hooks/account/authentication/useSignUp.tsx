@@ -3,17 +3,24 @@ import { useState } from 'react'
 import { useFetch } from '../../useFetch'
 import { useAuthContext } from '../../../contexts/auth-context'
 import { useModalContext } from '../../../contexts/modal-context'
+
 // api
 import { api } from '../../../helpers/url'
+
 // interfaces
 import { ISignUpModel } from '../../../protocols/usecase/account/authentication/signup-protocol'
 
 export const useSignUp = () => {
+  // states
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
-  const { send } = useFetch()
   const { authState, authDispatch } = useAuthContext()
+
+  // contexts
   const { modalDispatch } = useModalContext()
+
+  // hooks
+  const { send } = useFetch()
 
   const signUp = async (signUpData: ISignUpModel | null) => {
     setLoading(true)

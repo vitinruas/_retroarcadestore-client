@@ -1,5 +1,4 @@
-import React, { createContext, ReactElement, useContext, useState } from 'react'
-
+// interfaces
 interface IUseMoneyConverter {
   convert(price: number, cipher: string): string
 }

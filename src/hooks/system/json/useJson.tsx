@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { api, json } from '../../../helpers/url'
 import { useFetch } from '../../useFetch'
-import { IAddress } from '../../../protocols/entities/account/client-entitie'
 
+// interfaces
 export interface IUseJson {
   data: any
   error: string | null
@@ -10,8 +9,11 @@ export interface IUseJson {
 }
 
 export const useJson = (): IUseJson => {
+  // states
   const [data, setData] = useState<object | null>(null)
   const [error, setError] = useState<string | null>(null)
+
+  // hooks
   const { send } = useFetch()
 
   const getJson = async (url: string) => {
