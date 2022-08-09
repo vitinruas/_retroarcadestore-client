@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useFetch } from '../../useFetch'
 import { useAuthContext } from '../../../contexts/auth-context'
 import { useModalContext } from '../../../contexts/modal-context'
+import { useNavigate } from 'react-router-dom'
 
 // api
 import { api } from '../../../helpers/url'
@@ -21,6 +22,7 @@ export const useSignUp = () => {
 
   // hooks
   const { send } = useFetch()
+  const navigate = useNavigate()
 
   const signUp = async (signUpData: ISignUpModel | null) => {
     setLoading(true)
@@ -43,6 +45,7 @@ export const useSignUp = () => {
           type: 'CLOSE',
           reactComponent: null,
         })
+        navigate('/')
       }
     } else {
       setError(receivedError)

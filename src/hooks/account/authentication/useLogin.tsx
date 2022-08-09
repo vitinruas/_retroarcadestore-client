@@ -22,6 +22,7 @@ export const useLogin = () => {
 
   // hooks
   const { send } = useFetch()
+  const navigate = useNavigate()
 
   const login = async (authenticationData: IAuthenticationModel | null) => {
     setLoading(true)
@@ -43,6 +44,7 @@ export const useLogin = () => {
           type: 'CLOSE',
           reactComponent: null,
         })
+        navigate('/')
       }
     } else {
       setError(receivedError)
