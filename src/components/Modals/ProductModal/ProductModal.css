@@ -31,17 +31,17 @@
   border-color: var(--p-color);
 }
 
-.product-modal .mainImage {
+.product-modal .bannerImage {
   width: 90%;
   height: 60%;
 }
 
-.product-modal .mainImage img {
+.product-modal .bannerImage img {
   width: 100%;
   height: 100%;
 }
 
-.product-modal .mainImage img:hover {
+.product-modal .bannerImage img:hover {
   cursor: zoom-in;
 }
 

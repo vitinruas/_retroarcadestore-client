@@ -60,10 +60,10 @@ const ProductModal = ({ product }: IProps) => {
       {/* product images */}
       <div className="images">
         {/* product main image */}
-        <figure className="mainImage">
-          {product.mainImage ? (
+        <figure className="bannerImage">
+          {product.bannerImage ? (
             <img
-              src={`http://localhost:5000/uploads/product/${product.mainImage}`}
+              src={`http://localhost:5000/uploads/product/${product.bannerImage}`}
               onMouseEnter={(e) => handleZoomInImage(e)}
               onMouseLeave={(e) => handleZoomOutImage(e)}
             />

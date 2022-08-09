@@ -16,9 +16,9 @@ const Product = ({ product }: IProps) => {
   return (
     <div className="product-card">
       {/* product main image */}
-      <figure className="mainImage">
+      <figure className="cardImage">
         <img
-          src={`http://localhost:5000/uploads/product/${product.mainImage}`}
+          src={`http://localhost:5000/uploads/product/${product.cardImage}`}
         />
       </figure>
       {/* product name */}
