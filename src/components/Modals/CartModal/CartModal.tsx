@@ -10,7 +10,7 @@ import './CartModal.css'
 import { IoCloseCircleSharp } from 'react-icons/io5'
 import {
   MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
+  MdOutlineKeyboardArrowRight
 } from 'react-icons/md'
 import { TbDiscount } from 'react-icons/tb'
 
@@ -38,7 +38,7 @@ const CartModal = (props: IProps) => {
   const handleCloseSignUpModal = () =>
     modalDispatch({
       type: 'CLOSE',
-      reactComponent: null,
+      reactComponent: null
     })
 
   const { convert } = useMoneyConverter()

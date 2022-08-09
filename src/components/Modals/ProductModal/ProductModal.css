@@ -22,6 +22,8 @@
 
 .product-modal img {
   border: 4px solid var(--s-color);
+  object-fit: cover;
+  object-position: center;
 }
 
 .product-modal img:hover {
@@ -37,8 +39,6 @@
 .product-modal .mainImage img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 
 .product-modal .mainImage img:hover {

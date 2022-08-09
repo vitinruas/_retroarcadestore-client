@@ -1,5 +1,5 @@
 import React from 'react'
-import { IProduct } from '../../protocols/entities/product/product-entitie'
+import { IProductEntitie } from '../../protocols/entities/product/product-entitie'
 
 // styles
 import './ProductCard.css'
@@ -8,7 +8,7 @@ import './ProductCard.css'
 import { useMoneyConverter } from '../../hooks/system/conversors/useMoneyConverter'
 
 interface IProps {
-  product: IProduct
+  product: IProductEntitie
 }
 
 const Product = ({ product }: IProps) => {
@@ -17,7 +17,9 @@ const Product = ({ product }: IProps) => {
     <div className="product-card">
       {/* product main image */}
       <figure className="mainImage">
-        <img src={product.mainImage} />
+        <img
+          src={`http://localhost:5000/uploads/product/${product.mainImage}`}
+        />
       </figure>
       {/* product name */}
       <div className="name">

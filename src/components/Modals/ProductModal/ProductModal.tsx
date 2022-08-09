@@ -6,7 +6,7 @@ import { AiFillDollarCircle } from 'react-icons/ai'
 import { IoCloseCircleSharp } from 'react-icons/io5'
 import {
   IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
+  IoIosArrowDroprightCircle
 } from 'react-icons/io'
 import { FaShoppingCart } from 'react-icons/fa'
 import { AiOutlineHeart } from 'react-icons/ai'
@@ -19,9 +19,10 @@ import { useMoneyConverter } from '../../../hooks/system/conversors/useMoneyConv
 
 // interfaces
 interface IProps {
-  product: IProduct
+  product: IProductEntitie
 }
-import { IProduct } from '../../../protocols/entities/product/product-entitie'
+import { IProductEntitie } from '../../../protocols/entities/product/product-entitie'
+import products_list from '../../../mocks/products'
 
 const ProductModal = ({ product }: IProps) => {
   // hooks
@@ -33,7 +34,7 @@ const ProductModal = ({ product }: IProps) => {
   const handleCloseProductModal = () => {
     modalDispatch({
       type: 'CLOSE',
-      reactComponent: null,
+      reactComponent: null
     })
   }
 
@@ -62,7 +63,7 @@ const ProductModal = ({ product }: IProps) => {
         <figure className="mainImage">
           {product.mainImage ? (
             <img
-              src={product.mainImage}
+              src={`http://localhost:5000/uploads/product/${product.mainImage}`}
               onMouseEnter={(e) => handleZoomInImage(e)}
               onMouseLeave={(e) => handleZoomOutImage(e)}
             />
@@ -72,8 +73,10 @@ const ProductModal = ({ product }: IProps) => {
         </figure>
         {/* product preview images */}
         <div className="previewImages">
-          {product.previewImages.length > 0 ? (
-            product.previewImages.map((image) => <img src={image} />)
+          {product.previewImages && product.previewImages.length > 0 ? (
+            product.previewImages.map((image) => (
+              <img src={`http://localhost:5000/uploads/product/${image}`} />
+            ))
           ) : (
             <>
               <div className="no-image"></div>
@@ -93,9 +96,13 @@ const ProductModal = ({ product }: IProps) => {
         {/* product avaliation */}
         <div className="avaliation">
           <div className="stars"></div>
-          <span>
-            {product.avaliations.length} pessoas avaliaram {product.name}
-          </span>
+          {product.avaliations && product.avaliations.length ? (
+            <span>
+              {product.avaliations.length}avaliaram {product.name}
+            </span>
+          ) : (
+            <span>Não há nenhuma avaliação, seja o(a) primeiro(a) :)</span>
+          )}
         </div>
         {/* product description */}
         <span className="description">{product.description}</span>
@@ -139,7 +146,7 @@ const ProductModal = ({ product }: IProps) => {
           </button>
         </div>
         {/* product id */}
-        <span className="id">ID: {product.id}</span>
+        <span className="id">ID: {product.pid}</span>
       </div>
     </div>
   )

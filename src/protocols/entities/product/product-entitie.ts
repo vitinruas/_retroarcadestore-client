@@ -1,19 +1,19 @@
-import { IAvaliation } from './avaliation-entitie'
+import { IAvaliationEntitie } from './avaliation-entitie'
 
-type ICategory = 'games' | 'clothes' | 'accessories'
+type CategoryType = 'games' | 'clothes' | 'accessories'
 
-export interface IProduct {
-  id: string
-  category: ICategory
+export interface IProductEntitie {
+  pid: string
+  category: CategoryType
   name: string
   mainImage: string
   previewImages: string[]
   description: string
-  avaliations: IAvaliation[]
+  avaliations?: IAvaliationEntitie[]
   quantity: number | 'isGame'
   price: number
   discount: number
-  isEnabled: boolean
   createdAt: string
+  isEnabled?: boolean
   updatedAt?: string
 }

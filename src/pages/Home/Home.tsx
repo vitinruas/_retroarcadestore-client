@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // styles
 import './Home.css'
@@ -16,16 +16,26 @@ import products_list from '../../mocks/products'
 
 // interfaces
 interface IProps {}
-import { IProduct } from '../../protocols/entities/product/product-entitie'
+import { IProductEntitie } from '../../protocols/entities/product/product-entitie'
+import { useGetProducts } from '../../hooks/product/useGetProducts'
 
 const Home = (props: IProps) => {
-  const products = products_list
+  // states
+  const { products, getProducts } = useGetProducts()
 
+  // contexts
   const { modalDispatch } = useModalContext()
-  const handleOpenProductModal = (product: IProduct) => {
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  console.log(products)
+
+  const handleOpenProductModal = (product: IProductEntitie) => {
     return modalDispatch({
       type: 'OPEN',
-      reactComponent: <ProductModal product={product} />,
+      reactComponent: <ProductModal product={product} />
     })
   }
 
@@ -47,7 +57,7 @@ const Home = (props: IProps) => {
               (product) =>
                 product.isEnabled && (
                   <div
-                    key={product.id}
+                    key={product.pid}
                     onClick={() => handleOpenProductModal(product)}
                   >
                     <Product product={product} />

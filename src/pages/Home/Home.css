@@ -32,3 +32,8 @@
   align-items: center;
   flex-flow: row wrap;
 }
+
+.home .list span {
+  font: bold 1.5rem 'Retron2000';
+  color: var(--p-color);
+}
