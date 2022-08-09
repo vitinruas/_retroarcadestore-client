@@ -8,5 +8,11 @@
 }
 
 .error-404 h1 {
-  font: bold 3rem 'Retron2000';
+  font: bold 2.5rem 'Retron2000';
+  color: var(--p-color);
+}
+
+.error-404 span {
+  margin-top: 1rem;
+  font: normal 1rem 'Retron2000';
 }

@@ -1,5 +1,9 @@
 import React from 'react'
 
+// styles
+import './Error500.css'
+
+// interfaces
 interface IProps {
   messageContent: {
     title: string | null
